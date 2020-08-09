@@ -66,7 +66,11 @@ daovoice('update');
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">公告</a></li>
+				<li><a href="/categories">分类</a></li>
+	        
+				<li><a href="/tags">公告</a></li>
+	        
+				<li><a href="/">关于</a></li>
 	        
 			</ul>
 		</nav>
@@ -88,7 +92,7 @@ daovoice('update');
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'archives')" href="javascript:void(0)">归档</a>
     			
             
 		</nav>
@@ -129,6 +133,10 @@ daovoice('update');
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -144,12 +152,16 @@ daovoice('update');
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">公告</a></li>
+					<li style="width: 25%"><a href="/categories">分类</a></li>
+		        
+					<li style="width: 25%"><a href="/tags">公告</a></li>
+		        
+					<li style="width: 25%"><a href="/">关于</a></li>
 		        
 				</ul>
 			</nav>
@@ -320,7 +332,7 @@ MathJax.Hub.Queue(function() {
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'archives')"><a href="javascript:void(0)" q-class="active:archives">归档</a></li>
       
         
     </ul>
@@ -405,12 +417,6 @@ MathJax.Hub.Queue(function() {
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-me" q-show="aboutme">
-  	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;p&gt;益题（Yitee）是个拥有高质量题解的网站，主要面向于OIER。初学者可以在这里提高水平，普及组选手可以在此学习算法，更进一步。提高组选手亦可在此巩固基础，获得新的发现。期待您的加入！&lt;/p&gt;</div>
-  	  	
-    	</section>
     
   </div>
   
