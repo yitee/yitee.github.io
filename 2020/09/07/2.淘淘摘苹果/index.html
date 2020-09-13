@@ -16,7 +16,7 @@
 <meta property="og:description" content="前言本站一般是周一先将题目放上来供大家思考，周四、五会把后面的放上来(^人^)  作者：xyzlh">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-07T11:56:03.000Z">
-<meta property="article:modified_time" content="2020-09-08T13:48:56.286Z">
+<meta property="article:modified_time" content="2020-09-13T11:01:57.001Z">
 <meta property="article:author" content="益题 Yitee">
 <meta property="article:tag" content="入门">
 <meta property="article:tag" content="选择结构">
@@ -82,7 +82,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">1.1k</span>
+    总字数 <span class="post-count">1.4k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -203,7 +203,7 @@ daovoice('update');
         
 
         <div align="center" class="post-count">
-    字数：434字 | 预计阅读时长：1分钟
+    字数：764字 | 预计阅读时长：3分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -229,13 +229,21 @@ daovoice('update');
 <a id="more"></a>
 <p>今天讲的是一道比较有名的题：淘淘摘苹果 (洛谷P1046)，这个也还是比较简单的  </p>
 <p>题目链接：<a href="https://www.luogu.com.cn/problem/P1046" target="_blank" rel="noopener">洛谷</a></p>
-<p>首先我们来看一下<strong>题目描述</strong>：</p>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>首先我们来看一下<strong>题目描述</strong>：</p>
 <p>陶陶家的院子里有一棵苹果树，每到秋天树上就会结出 10 个苹果。苹果成熟的时候，陶陶就会跑去摘苹果。陶陶有个 30 厘米高的板凳，当她不能直接用手摘到苹果的时候，就会踩到板凳上再试试。</p>
 <p>现在已知 10 个苹果到地面的高度，以及陶陶把手伸直的时候能够达到的最大高度，请帮陶陶算一下她能够摘到的苹果的数目。假设她碰到苹果，苹果就会掉下来。</p>
 <p><strong>输入格式</strong>:<br>输入包括两行数据。第一行包含 10 个 100 到 200 之间（包括 100 和 200 ）的整数<br>（以厘米为单位）分别表示 10 个苹果到地面的高度，两个相邻的整数之间用一个空格隔开。<br>第二行只包括一个 100 到 120 之间（包含 100 和 120 ）的整数（以厘米为单位），表示陶陶把手伸直的时候能够达到的最大高度。</p>
 <p><strong>输出格式</strong>:<br>输出包括一行，这一行只包含一个整数，表示陶陶能够摘到的苹果的数目。  </p>
 <p><strong>输入输出样例</strong><br>输入 #1<br>100 200 150 140 129 134 167 198 200 111<br>110<br>输出 #1<br>5<br>说明/提示<br>NOIP2005 普及组第一题</p>
-<p>如果有思路的话，您可以尝试写一下，欢迎我们一起交流😃</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>其实这道题还是有点水的，打个暴力就可以过去了<br>假设淘淘能够到的最大高度是x,那么如果 x+30&gt;=苹果的高度 就可以摘下来，<br>否则就无法摘下来。在判断的同时统计一下数目即可。</p>
+<h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><p>c语言</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;&#x2F;&#x2F;头文件</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a[10],i,sum&#x3D;0,n;&#x2F;&#x2F;a为苹果高度，i是循环变量,sum用来计数，n是淘淘能够到的最大高度</span><br><span class="line">    for(i&#x3D;0;i&lt;10;i++)scanf(&quot;%d&quot;,&amp;a[i]);&#x2F;&#x2F;输入苹果高度</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);&#x2F;&#x2F;输入能够到的最大高度</span><br><span class="line">    for(i&#x3D;0;i&lt;10;i++)&#123;</span><br><span class="line">        if(a[i]&lt;n+30)sum++;&#x2F;&#x2F;判断+统计数量</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d&quot;,sum);&#x2F;&#x2F;输出</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>c++</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a[10],i,sum&#x3D;0,n;</span><br><span class="line">    for(i&#x3D;0;i&lt;10;i++)cin&gt;&gt;a[i];</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    for(i&#x3D;0;i&lt;10;i++)&#123;</span><br><span class="line">        if(a[i]&lt;&#x3D;n+30)sum++;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>建议最好是根据思路自己写一下代码，切忌直接copy，也可以理解完代码后自己写一遍。</p>
+<p>如果您有更好的思路或者其他语言的代码，欢迎您在评论区中提出😁</p>
+<p>这期到这里就结束了，我们下期再见！😊</p>
 
       
        
@@ -255,7 +263,7 @@ daovoice('update');
     2020-09-07
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-09-08
+    2020-09-13
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://yitee.github.io/2020/09/07/2.淘淘摘苹果/" title="2.淘淘摘苹果" target="_blank">2.淘淘摘苹果</a>
@@ -418,7 +426,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">2.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路分析"><span class="toc-number">3.</span> <span class="toc-text">思路分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AC代码"><span class="toc-number">4.</span> <span class="toc-text">AC代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
