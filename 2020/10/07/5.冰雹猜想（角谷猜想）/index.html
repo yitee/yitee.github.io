@@ -16,11 +16,12 @@
 <meta property="og:description" content="前言第五期又来啦！我们也欢迎大家参与投稿，一经采用，稿酬从优😁投稿方式:您可以通过我们的联系方式将内容打包发给我们进行审核（内容包括.md文件，昵称，有效联系方式，题目标签，题目来源）。联系方式见关于页  作者：xyzlh">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-07T09:53:03.000Z">
-<meta property="article:modified_time" content="2020-10-07T09:54:48.883Z">
+<meta property="article:modified_time" content="2020-10-12T12:40:35.430Z">
 <meta property="article:author" content="益题 Yitee">
 <meta property="article:tag" content="入门">
 <meta property="article:tag" content="选择结构">
 <meta property="article:tag" content="栈">
+<meta property="article:tag" content="数组">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -82,7 +83,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">3.5k</span>
+    总字数 <span class="post-count">4.2k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -203,7 +204,7 @@ daovoice('update');
         
 
         <div align="center" class="post-count">
-    字数：438字 | 预计阅读时长：1分钟
+    字数：1.1k字 | 预计阅读时长：4分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -234,9 +235,20 @@ daovoice('update');
 <p><strong>输入格式</strong>:<br>无</p>
 <p><strong>输出格式</strong>:<br>无</p>
 <p><strong>输入输出样例</strong><br>输入 #1<br>20<br>输出 #1<br>1 2 4 8 16 5 10 20 </p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="简单分析"><a href="#简单分析" class="headerlink" title="简单分析"></a>简单分析</h3><p>前面的算法还是比较简单的。但注意到，题目要求是倒序输出，所以这题不仅可以用数组逆序输出，<br>用数据结构“栈”似乎也是个不错的方式，其他的方法也是有的。过两天更新时会讲两种思路。</p>
-<p>如果您有答案，可以私聊我们哦😊  </p>
-<p>如果有好的方法，采用方式同投稿</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="简单分析"><a href="#简单分析" class="headerlink" title="简单分析"></a>简单分析</h3><p>前面的算法还是比较简单的。但注意到，题目要求是倒序输出，所以这题不仅可以用数组逆序输出，<br>用数据结构“栈”似乎也是个不错的方式，其他的方法也是有的。<br>前面的算法就是简单判断，数组储存，作者在这里就不多解释了。我们讲一下倒序输出的两种方式。</p>
+<h3 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h3><p>在判断+储存时记录下数组长度，全部储存完后，从最后一个开始循环，一直到第一个<br>进行输出。</p>
+<h3 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h3><p>在储存时就使用栈，由于栈的先进后出(FILO)，第一个被弹出去的就是最后一个进来的，<br>以此类推，输出的最后一个也就是第一个进来的数。<br>下面介绍一些关于栈的内容：</p>
+<blockquote>
+<p>栈（stack）又名堆栈，它是一种运算受限的线性表。<br>限定仅在表尾进行插入和删除操作的线性表。这一端被称为栈顶，<br>相对地，把另一端称为栈底。向一个栈插入新元素又称作进栈、入栈或压栈，<br>它是把新元素放到栈顶元素的上面，使之成为新的栈顶元素；<br>从一个栈删除元素又称作出栈或退栈，它是把栈顶元素删除掉，<br>使其相邻的元素成为新的栈顶元素。<br>——摘自百度词条</p>
+</blockquote>
+<p>关于栈的使用（这里是c++用法）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; 栈的名称;<span class="comment">//引入一个栈</span></span><br><span class="line">栈的名称.push(n);<span class="comment">//将n加入栈顶</span></span><br><span class="line">栈的名称.empty();<span class="comment">//判断一个栈是否为空栈，是则返回0</span></span><br><span class="line">栈的名称.top();<span class="comment">//返回栈顶元素</span></span><br><span class="line">栈的名称.pop(n);<span class="comment">//弹出栈顶元素</span></span><br></pre></td></tr></table></figure>
+<h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><h3 id="思路一"><a href="#思路一" class="headerlink" title="思路一"></a>思路一</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;//头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; zh;<span class="comment">//引入一个栈</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,a;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;<span class="comment">//输入</span></span><br><span class="line">    <span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;<span class="comment">//判断</span></span><br><span class="line">        zh.push(n);<span class="comment">//将n加入栈顶</span></span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)n/=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> n=n*<span class="number">3</span>+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    zh.push(<span class="number">1</span>);<span class="comment">//将1加入栈顶</span></span><br><span class="line">    <span class="keyword">while</span>(zh.empty()==<span class="number">0</span>)&#123;<span class="comment">//判断一个栈是否为空栈，是则返回0</span></span><br><span class="line">        a=zh.top();<span class="comment">//返回栈顶元素</span></span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;a&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        zh.pop();<span class="comment">//弹出栈顶元素</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="思路二"><a href="#思路二" class="headerlink" title="思路二"></a>思路二</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;//头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,b[<span class="number">100000</span>],i,k=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;<span class="comment">//输入</span></span><br><span class="line">    <span class="keyword">while</span>(n!=<span class="number">1</span>)&#123;<span class="comment">//判断</span></span><br><span class="line">        b[k]=n;<span class="comment">//加入数组</span></span><br><span class="line">        k++;<span class="comment">//统计数组元素个数</span></span><br><span class="line">        <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)n/=<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> n=n*<span class="number">3</span>+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"1"</span>&lt;&lt;<span class="string">" "</span>;<span class="comment">//先输出1</span></span><br><span class="line">    <span class="keyword">for</span>(i=k;i&gt;=<span class="number">0</span>;i--)<span class="built_in">cout</span>&lt;&lt;b[i]&lt;&lt;<span class="string">" "</span>;<span class="comment">//逆序输出，注意这里一定要从k-1开始</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>建议最好是根据思路自己写一下代码，切忌直接copy，也可以理解完代码后自己写一遍。</p>
+<p>如果您有更好的思路或者其他语言的代码，欢迎您在评论区中提出😁</p>
+<p>这期到这里就结束了，我们下期再见！😊</p>
 
       
        
@@ -256,7 +268,7 @@ daovoice('update');
     2020-10-07
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-10-07
+    2020-10-12
     <br>
     <strong class="article-titles">本文标题：</strong>
     <a href="https://yitee.github.io/2020/10/07/5.冰雹猜想（角谷猜想）/" title="5.冰雹猜想（角谷猜想）" target="_blank">5.冰雹猜想（角谷猜想）</a>
@@ -321,6 +333,10 @@ daovoice('update');
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
         		</li>
       		
 		</ul>
@@ -419,7 +435,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">2.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路分析"><span class="toc-number">3.</span> <span class="toc-text">思路分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单分析"><span class="toc-number">3.1.</span> <span class="toc-text">简单分析</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目"><span class="toc-number">2.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路分析"><span class="toc-number">3.</span> <span class="toc-text">思路分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单分析"><span class="toc-number">3.1.</span> <span class="toc-text">简单分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路1"><span class="toc-number">3.2.</span> <span class="toc-text">思路1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路2"><span class="toc-number">3.3.</span> <span class="toc-text">思路2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AC代码"><span class="toc-number">4.</span> <span class="toc-text">AC代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路一"><span class="toc-number">4.1.</span> <span class="toc-text">思路一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路二"><span class="toc-number">4.2.</span> <span class="toc-text">思路二</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -628,6 +644,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">数组</a>
               </li>
             
             <div class="clearfix"></div>
