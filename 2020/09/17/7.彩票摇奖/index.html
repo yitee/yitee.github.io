@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.github.io">
-  <title>公告 | 益题 Yitee</title>
+  <title>7.[AHOI2001]彩票摇奖 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="公告">
-<meta property="og:url" content="https://yitee.github.io/notice/index.html">
+  <meta name="description" content="前言第七期上线啦！  作者：X3B0A1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="7.[AHOI2001]彩票摇奖">
+<meta property="og:url" content="https://yitee.github.io/2020/09/17/7.%E5%BD%A9%E7%A5%A8%E6%91%87%E5%A5%96/index.html">
 <meta property="og:site_name" content="益题 Yitee">
+<meta property="og:description" content="前言第七期上线啦！  作者：X3B0A1">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-11T12:53:22.000Z">
-<meta property="article:modified_time" content="2020-08-12T13:47:42.984Z">
+<meta property="article:published_time" content="2020-09-17T13:41:00.000Z">
+<meta property="article:modified_time" content="2020-10-20T14:07:11.491Z">
 <meta property="article:author" content="益题 Yitee">
+<meta property="article:tag" content="入门">
+<meta property="article:tag" content="选择结构">
+<meta property="article:tag" content="循环结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -180,25 +185,25 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="notice-" class="article article-type-notice " itemscope itemprop="blogPost">
+            <article id="post-7.彩票摇奖" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      公告
+      7.[AHOI2001]彩票摇奖
     </h1>
   
 
         
-        <a href="/notice/index.html" class="archive-article-date">
-  	<time datetime="2020-08-11T12:53:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-11</time>
+        <a href="/2020/09/17/7.%E5%BD%A9%E7%A5%A8%E6%91%87%E5%A5%96/" class="archive-article-date">
+  	<time datetime="2020-09-17T13:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
 </a>
         
 
         <div align="center" class="post-count">
-    字数：0字 | 预计阅读时长：1分钟
+    字数：621字 | 预计阅读时长：2分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -217,7 +222,42 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第七期上线啦！</p>
+<hr>
+<p>作者：X3B0A1</p>
+<hr>
+<a id="more"></a>
+<p>大家好，今天我们来看一道简单的AHOI</p>
+<p><a href="https://www.luogu.com.cn/problem/P2550" target="_blank" rel="noopener">luogu链接</a></p>
+<h2 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h2><p>首先看一下题目的<strong>彩票规则</strong>：</p>
+<ul>
+<li>每张彩票上印有 7 个各不相同的号码，且这些号码的取值范围为 1∼33。</li>
+<li>每次在兑奖前都会公布一个由七个各不相同的号码构成的中奖号码。</li>
+<li>共设置 7 个奖项，特等奖和一等奖至六等奖。</li>
+</ul>
+<p><strong>获奖条件</strong>：</p>
+<p>特等奖，7个号码出现在获奖号码中</p>
+<p>一等奖，6个号码出现在获奖号码中</p>
+<p>以此类推，</p>
+<p>六等奖，1个号码出现在获奖号码中</p>
+<p>不需要考虑出现的顺序</p>
+<p>现在已知中奖号码和小明买的若干张彩票的号码，请写一个程序帮助小明判断他买的彩票的中奖情况。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><p><strong>输入</strong>：</p>
+<p>第一行一个自然数 n，表示小明买的彩票张数；</p>
+<p>第二行存放了 7 个中奖号码；</p>
+<p>在随后的 n 行中每行都有 7 个数，分别表示小明所买的 n 张彩票。</p>
+<p><strong>输出</strong>：</p>
+<p>依次输出小明所买的彩票的中奖情况（中奖的张数），首先输出特等奖的中奖张数，然后依次输出一等奖至六等奖的中奖张数。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>首先，输入n和7个中奖号码</p>
+<p>然后循环n次，每次输入小明所买的彩票，遍历小明的数和中奖的数，并且把每两个数都做一次比较，如果相等，记录下来，统计完一个彩票后，判断是几等奖，并记录下来。</p>
+<p>最后输出各个奖的数量</p>
+<h2 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码:"></a>参考代码:</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="comment">// a中奖号码   xm小明的号码   cnt中奖情况</span></span><br><span class="line"><span class="keyword">int</span> n,a[<span class="number">10</span>],xm,cnt[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//输入</span></span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">		<span class="comment">//清空sum</span></span><br><span class="line">		<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">7</span>; j++)&#123;</span><br><span class="line">			<span class="comment">//输入小明的号码</span></span><br><span class="line">			<span class="built_in">cin</span> &gt;&gt; xm;</span><br><span class="line">			<span class="comment">//让该号码与中奖号码依次比较</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; <span class="number">7</span>; k++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(xm == a[k])&#123;</span><br><span class="line">					<span class="comment">//如果相符，sum加一</span></span><br><span class="line">					sum++;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//最后直接存储在各奖项的统计数组里</span></span><br><span class="line">		cnt[<span class="number">7</span>-sum]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 输出</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; cnt[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>thank you</p>
+<p>the end.</p>
+<p>by X3B0A1</p>
+<p>2020.10.20</p>
+
       
        
             <!-- 《添加版权声明 -->
@@ -233,16 +273,16 @@ daovoice('update');
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-08-11
+    2020-09-17
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-08-12
+    2020-10-20
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://yitee.github.io/notice/index.html" title="公告" target="_blank">公告</a>
+    <a href="https://yitee.github.io/2020/09/17/7.彩票摇奖/" title="7.[AHOI2001]彩票摇奖" target="_blank">7.[AHOI2001]彩票摇奖</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://yitee.github.io/notice/index.html" title="公告" target="_blank">https://yitee.github.io/notice/index.html</a>
+    <a href="https://yitee.github.io/2020/09/17/7.彩票摇奖/" title="7.[AHOI2001]彩票摇奖" target="_blank">https://yitee.github.io/2020/09/17/7.彩票摇奖/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -287,6 +327,25 @@ daovoice('update');
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">选择结构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">循环结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -337,7 +396,7 @@ daovoice('update');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/notice/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/09/17/7.%E5%BD%A9%E7%A5%A8%E6%91%87%E5%A5%96/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -349,6 +408,25 @@ daovoice('update');
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2020/09/17/3.Davor/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          3.[COCI2017-2018#6]Davor
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/09/07/2.%E6%B7%98%E6%B7%98%E6%91%98%E8%8B%B9%E6%9E%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2.淘淘摘苹果</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -370,7 +448,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目大意"><span class="toc-number">2.</span> <span class="toc-text">题目大意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#输入输出格式"><span class="toc-number">3.</span> <span class="toc-text">输入输出格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题思路"><span class="toc-number">4.</span> <span class="toc-text">解题思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考代码"><span class="toc-number">5.</span> <span class="toc-text">参考代码:</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -380,6 +458,43 @@ daovoice('update');
 </aside>
 
 
+
+   
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "jGcu64m7fjMl5KdSrGFjtJrc-MdYXbMMI",
+            app_key: "rOwoqUYW7ASwOGYRN6kG65SG",
+            placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+            avatar:"mp"
+        });
+    }
+</script>
+  </section>
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -426,7 +541,7 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
