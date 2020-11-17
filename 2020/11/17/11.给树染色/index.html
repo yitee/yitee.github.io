@@ -6,26 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.github.io">
-  <title>9.[HNOI2004]敲砖块 | 益题 Yitee</title>
+  <title>11.给树染色 Color a tree | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言新人，第一道水题  作者：H_D_NULL 本文的其他链接：我的博客">
+  <meta name="description" content="作者：H_D_NULL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9.[HNOI2004]敲砖块">
-<meta property="og:url" content="https://yitee.github.io/2020/11/04/9.%E6%95%B2%E7%A0%96%E5%9D%97/index.html">
+<meta property="og:title" content="11.给树染色 Color a tree">
+<meta property="og:url" content="https://yitee.github.io/2020/11/17/11.%E7%BB%99%E6%A0%91%E6%9F%93%E8%89%B2/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="前言新人，第一道水题  作者：H_D_NULL 本文的其他链接：我的博客">
+<meta property="og:description" content="作者：H_D_NULL">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dkic4fp2.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dngjkmd9.png">
-<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/z9br9zcw.png">
-<meta property="article:published_time" content="2020-11-04T13:53:03.000Z">
-<meta property="article:modified_time" content="2020-11-04T14:05:57.849Z">
+<meta property="article:published_time" content="2020-11-17T13:18:00.000Z">
+<meta property="article:modified_time" content="2020-11-17T13:58:31.803Z">
 <meta property="article:author" content="益题 Yitee">
 <meta property="article:tag" content="提高">
-<meta property="article:tag" content="动态规划">
 <meta property="article:tag" content="进阶">
+<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dkic4fp2.png">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
   
@@ -209,25 +205,25 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-9.敲砖块" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-11.给树染色" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      9.[HNOI2004]敲砖块
+      11.给树染色 Color a tree
     </h1>
   
 
         
-        <a href="/2020/11/04/9.%E6%95%B2%E7%A0%96%E5%9D%97/" class="archive-article-date">
-  	<time datetime="2020-11-04T13:53:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
+        <a href="/2020/11/17/11.%E7%BB%99%E6%A0%91%E6%9F%93%E8%89%B2/" class="archive-article-date">
+  	<time datetime="2020-11-17T13:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-17</time>
 </a>
         
 
         <div align="center" class="post-count">
-    字数：667字 | 预计阅读时长：2分钟
+    字数：1.6k字 | 预计阅读时长：6分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -246,28 +242,39 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新人，第一道水题</p>
-<hr>
-<p>作者：H_D_NULL</p>
-<p>本文的其他链接：<a href="https://www.luogu.com.cn/blog/236099/solution-p1437" target="_blank" rel="noopener">我的博客</a></p>
+        <p>作者：H_D_NULL</p>
 <hr>
 <a id="more"></a>
-<p>题目链接：<a href="https://www.luogu.com.cn/problem/P1437" target="_blank" rel="noopener">P1437 [HNOI2004]敲砖块</a></p>
+
+<p>题目链接：<a href="https://www.luogu.com.cn/problem/SP3912" target="_blank" rel="noopener">SP3912 MTREECOL - Color a tree</a></p>
 <hr>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，经过观察，我们发现如果一块砖头被敲，那么其上一层与其相邻的两块砖头也必须被敲，这两块砖头又会影响与它们相邻的上层砖头……就会形成以下一个三角形：</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/dkic4fp2.png" alt></p>
-<p>这就相当于DP的一个状态，而且可以预处理，不禁让我们想到了用DP的方法求解。</p>
-<p>但是，我们发现敲了多个砖头时，多个三角形可能会产生重叠：</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/dngjkmd9.png" alt></p>
-<p>这样就产生了后效性，不符合动态规划的原则。</p>
-<p>难道，只有放弃了吗……</p>
-<p>振作起来啊！经过观察，我们可以发现即使三角形有重叠，但它们的轮廓线始终保持某种规律，即可看做这几个三角形轮廓线的重叠：</p>
-<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/z9br9zcw.png" alt></p>
-<p>所以我们可以以每个点为状态，最终构造出一条合法的轮廓线，最终达到DP的目的。</p>
-<p>对于一个点，它的状态只能从他的左边，左下和左上转移而来，具体的状态转移方程会在代码中呈现。</p>
-<p>值得注意的是，这条轮廓线可能不连续，所以要利用状态0来保存之前的合法轮廓线（具体见代码）。</p>
-<p>下面上代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">55</span>][<span class="number">55</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">55</span>][<span class="number">55</span>][<span class="number">1505</span>];</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">55</span>][<span class="number">55</span>][<span class="number">1505</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n-i+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;v[i][j];</span><br><span class="line">			v[i][j]+=v[i<span class="number">-1</span>][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		vis[i][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//vis数组记录是否合法（也可不用？但用了肯定没错）</span></span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=n-i+<span class="number">1</span>;j++)&#123; <span class="comment">//用0状态来处理不连续的轮廓线</span></span><br><span class="line">			<span class="keyword">for</span>(re <span class="keyword">int</span> p=<span class="number">1</span>;p&lt;=m;p++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(p-j&gt;<span class="number">0</span>)&#123;</span><br><span class="line">					<span class="keyword">if</span>(vis[i<span class="number">-1</span>][j+<span class="number">1</span>][p-j])&#123;</span><br><span class="line">						vis[i][j][p]=<span class="number">1</span>;</span><br><span class="line">						f[i][j][p]=max(f[i][j][p],f[i<span class="number">-1</span>][j+<span class="number">1</span>][p-j]+v[j][i]);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span>(vis[i<span class="number">-1</span>][j][p-j])&#123;</span><br><span class="line">						vis[i][j][p]=<span class="number">1</span>;</span><br><span class="line">						f[i][j][p]=max(f[i][j][p],f[i<span class="number">-1</span>][j][p-j]+v[j][i]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(vis[i][j<span class="number">-1</span>][p<span class="number">-1</span>])&#123;</span><br><span class="line">					vis[i][j][p]=<span class="number">1</span>;</span><br><span class="line">					f[i][j][p]=max(f[i][j][p],f[i][j<span class="number">-1</span>][p<span class="number">-1</span>]+v[j][i]-v[j<span class="number">-1</span>][i]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) ans=max(f[i][<span class="number">1</span>][m],ans); <span class="comment">//只有最终到达1层的才是合法的结束状态</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定一棵树以及每个结点的权值 $v_i$，要求对所有点进行染色，条件是这个点的父节点已被染色，根节点第一个染色。染色的代价为染到这个点的时间 $T* v_i$，要求合理选出一种染色顺序（不用输出），使染色的代价和最小。</p>
+<p>（比如对于一棵退化成链的树 $1-&gt;2-&gt;3$，染色顺序确定为 $1-&gt;2-&gt;3$，代价总和为 $1\times v_1+2\times v_2+3\times v_3$）</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>在树上求代价，首先考虑树形 DP ，但是因为染色顺序没有规律，会对 DP 产生后效性，故排除，那么找到这种问题最佳策略的方法大概率为<strong>贪心</strong>；</p>
+<p>先思考如果没有树结构的限制，那么最优方案肯定是按权值从大到小的顺序选，所以很容易想到两个错误的贪心策略，以下是<strong>错误示范和hack</strong>：</p>
+<blockquote>
+<ol>
+<li>在所有可染的结点中选择权值最大的。hack：可选一个较小的结点，子树中有很多大结点，另外可选一个稍大的结点，没有子树；</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>在所有结点中选择权值最大的。hack：可选一个较小的结点，子树中有一个很大的结点，但是深度巨大，子树中其他结点很小，另外可选一个比刚刚的大结点稍小的结点；</li>
+</ol>
+</blockquote>
+<p>不难发现，以上两个解法的错误都是因为没有考虑树结构限制染色顺序，针对某个点的权值，进而无法保证按顺序贪心的代价最小。</p>
+<p>到这里，肯定有人（<del>大概不是你</del>）会敏锐地发现：“那<strong>如果一个点的即是权值最大的，又是现在可选，那一定选它</strong>吧。”没错，由这个结论，我们又可以引出一个重要的结论：<strong>如果一个点的权值最大，那么它一定在其父节点之后紧接着被染色</strong>。</p>
+<p>那么有人（<del>就是你了</del>）多半会问：“这样只能确定这两个点的染色顺序，那么如何确定其父节点的染色时间呢？”虽然暂时无法解决这个问题，但是这给我们提供了一个思路，及将两个点甚至多个点视为一个整体，再针对这个点集的权值来确定贪心策略。</p>
+<p>设最大点的权值 $x$ ，其父节点的权值 $fa$ 与另一点的权值 $y$ ，满足先选染最大点优于先选另一点的条件是：</p>
+<p>$T\times fa+(T+1)\times x+(T+2)* y \leq T\times y+(T+1)\times fa+(T+2)* x$</p>
+<p>$\iff x+2y \leq fa+2x$</p>
+<p>$\iff y \leq (fa+x)/2$</p>
+<p>那么结论就很显然了，对于这样两个点的点集，我们可以用 $(v_a+v_b)/2$ 来代替它的权值，那么推广得，<strong>对于一个 $k$ 个点的点集 $U$，我们定义它的等价权值$(\displaystyle\sum_ {i\in U} v_i)/k$</strong> 。</p>
+<p>贪心策略即是<strong>每次找到等价权值最大的点集，将它与它的父节点（集）合并为一个点集，直到只剩下一个点集</strong>（为了方便，我将这个点规定为根节点，具体见代码），每次枚举的复杂度为 $O(n^2)$ ，可以通过这道题，加堆维护后降为 $O(n log n)$，本人跑了 0ms，但是因为我处理合并时没有使用并查集，而是把合并时的父亲向儿子的所有儿子都连了一条边，导致常数很大，所以没有排到第一。</p>
+<p>值得注意的是，这里的等价权值和染色的代价无直接关系，所以我们还需要存下每个点集的选点顺序，具体操作为每合并两个点集，就将儿子的合并顺序接在父亲的合并顺序之后，统计答案时按着顺序模拟一遍即可，具体见代码。</p>
+<hr>
+<p><em>Talk is cheap, show me the code</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1005</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	re <span class="keyword">int</span> ret=<span class="number">0</span>;</span><br><span class="line">	re <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ret=(ret&lt;&lt;<span class="number">1</span>)+(ret&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>);</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125; <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,root,fa[N],ans;</span><br><span class="line"><span class="keyword">int</span> a[N],st[N],num[N],T;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; que[N]; <span class="comment">//处理每个点集的合并顺序 </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Solve</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">	T++; ans+=st[k]*T;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">auto</span> l:que[k]) Solve(l);</span><br><span class="line">&#125; <span class="comment">//采用递归的方式还原顺序 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> nxt;</span><br><span class="line">	<span class="keyword">int</span> to;</span><br><span class="line">&#125; e[N*N&gt;&gt;<span class="number">1</span>];</span><br><span class="line"><span class="comment">//按照我的暴力合并方式，需要多开边 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> h[N],cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	e[++cnt].nxt=h[x];</span><br><span class="line">	e[cnt].to=y;</span><br><span class="line">	h[x]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">R</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> id,val,cnt;</span><br><span class="line">	<span class="comment">//id:结点编号（用点集中最高的结点代替整个点集）</span></span><br><span class="line">	<span class="comment">//val:权值和 </span></span><br><span class="line">	<span class="comment">//cnt:结点数 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">cmp</span>&#123;</span></span><br><span class="line">	<span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span><span class="params">(<span class="keyword">const</span> R &amp;x,<span class="keyword">const</span> R &amp;y)</span> <span class="keyword">const</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> x.val*y.cnt&lt;x.cnt*y.val;</span><br><span class="line">	&#125; <span class="comment">//其实我觉着吧，还是要开 long long 的 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">priority_queue &lt;R,<span class="built_in">vector</span>&lt;R&gt;,cmp&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">		n=read(); root=read(); <span class="keyword">if</span>(!n&amp;&amp;!root) <span class="keyword">break</span>;</span><br><span class="line">		T=fa[root]=cnt=ans=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">			a[i]=st[i]=read();</span><br><span class="line">			h[i]=vis[i]=<span class="number">0</span>; que[i].clear(); num[i]=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span>(i!=root) q.push((R)&#123;i,a[i],<span class="number">1</span>&#125;);</span><br><span class="line">			<span class="comment">//因为最后目的是合并到根上，所以不合并根节点 </span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>,x,y;i&lt;n;i++)&#123;</span><br><span class="line">			x=read(); y=read();</span><br><span class="line">			add(x,y); fa[y]=x;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">			re R x=q.top(); q.pop();</span><br><span class="line">			<span class="keyword">if</span>(x.val!=a[x.id]) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="comment">//代替删除操作：如果这个点的信息“过期”，视为已被删除 </span></span><br><span class="line">			re <span class="keyword">int</span> now=x.id,mas=fa[now];</span><br><span class="line">			vis[now]=<span class="number">1</span>; <span class="comment">//表示其是否已经被当作一个子结点合并过了 </span></span><br><span class="line">			a[mas]+=x.val; num[mas]+=x.cnt;</span><br><span class="line">			que[mas].push_back(now);</span><br><span class="line">			<span class="comment">//处理顺序，只存代表点集的点编号，最后递归查找 </span></span><br><span class="line">			<span class="keyword">if</span>(mas!=root) q.push((R)&#123;mas,a[mas],num[mas]&#125;);</span><br><span class="line">			<span class="keyword">for</span>(re <span class="keyword">int</span> i=h[now],to;i;i=e[i].nxt)&#123;</span><br><span class="line">				to=e[i].to; <span class="keyword">if</span>(vis[to]) <span class="keyword">continue</span>;</span><br><span class="line">				fa[to]=mas; add(mas,to); <span class="comment">//暴力加边 </span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		Solve(root);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
        
@@ -284,16 +291,16 @@ daovoice('update');
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-11-04
+    2020-11-17
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-11-04
+    2020-11-17
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://yitee.github.io/2020/11/04/9.敲砖块/" title="9.[HNOI2004]敲砖块" target="_blank">9.[HNOI2004]敲砖块</a>
+    <a href="https://yitee.github.io/2020/11/17/11.给树染色/" title="11.给树染色 Color a tree" target="_blank">11.给树染色 Color a tree</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://yitee.github.io/2020/11/04/9.敲砖块/" title="9.[HNOI2004]敲砖块" target="_blank">https://yitee.github.io/2020/11/04/9.敲砖块/</a>
+    <a href="https://yitee.github.io/2020/11/17/11.给树染色/" title="11.给树染色 Color a tree" target="_blank">https://yitee.github.io/2020/11/17/11.给树染色/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -347,11 +354,11 @@ daovoice('update');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
         		</li>
       		
 		</ul>
@@ -407,7 +414,7 @@ daovoice('update');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/11/04/9.%E6%95%B2%E7%A0%96%E5%9D%97/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/11/17/11.%E7%BB%99%E6%A0%91%E6%9F%93%E8%89%B2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -421,18 +428,9 @@ daovoice('update');
   
 <nav id="article-nav">
   
-    <a href="/2020/11/11/10.%E7%94%B2%E8%99%AB/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          10.[BalticOI 2009 Day1]甲虫
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/29/8.%E5%8F%8C%E5%BA%8F%E5%88%97%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">8.双序列最大子段和</div>
+    <a href="/2020/11/11/10.%E7%94%B2%E8%99%AB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">10.[BalticOI 2009 Day1]甲虫</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -459,7 +457,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路"><span class="toc-number">1.1.</span> <span class="toc-text">解题思路</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a></li></ol>
                     </div>
                 </span>
             </div>
