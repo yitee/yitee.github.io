@@ -6,20 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.github.io">
-  <title>1.A+B Problem | 益题 Yitee</title>
+  <title>12.[POI2007]ATR-Tourist Attractions | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言益题终于上线啦！第一篇文章，请大家多多关注😊  作者：X3B0A1">
+  <meta name="description" content="作者：H_D_NULL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1.A+B Problem">
-<meta property="og:url" content="https://yitee.github.io/2020/09/02/1.A+B%20Problem/index.html">
+<meta property="og:title" content="12.[POI2007]ATR-Tourist Attractions">
+<meta property="og:url" content="https://yitee.github.io/2020/11/22/12.Tourist%20Attractions/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="前言益题终于上线啦！第一篇文章，请大家多多关注😊  作者：X3B0A1">
+<meta property="og:description" content="作者：H_D_NULL">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-02T07:54:03.000Z">
-<meta property="article:modified_time" content="2020-09-08T13:48:59.811Z">
+<meta property="article:published_time" content="2020-11-22T12:44:00.000Z">
+<meta property="article:modified_time" content="2020-11-22T12:45:22.210Z">
 <meta property="article:author" content="益题 Yitee">
-<meta property="article:tag" content="入门">
-<meta property="article:tag" content="顺序结构">
+<meta property="article:tag" content="提高">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="进阶">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -204,25 +205,25 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-1.A+B Problem" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-12.Tourist Attractions" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      1.A+B Problem
+      12.[POI2007]ATR-Tourist Attractions
     </h1>
   
 
         
-        <a href="/2020/09/02/1.A+B%20Problem/" class="archive-article-date">
-  	<time datetime="2020-09-02T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-02</time>
+        <a href="/2020/11/22/12.Tourist%20Attractions/" class="archive-article-date">
+  	<time datetime="2020-11-22T12:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-22</time>
 </a>
         
 
         <div align="center" class="post-count">
-    字数：286字 | 预计阅读时长：1分钟
+    字数：1.6k字 | 预计阅读时长：7分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -241,23 +242,41 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>益题终于上线啦！第一篇文章，请大家多多关注😊</p>
-<hr>
-<p>作者：X3B0A1</p>
+        <p>作者：H_D_NULL</p>
 <hr>
 <a id="more"></a>
-<p>大家好,今天我来讲解一下A+B problem (洛谷P1001)  </p>
-<p>题目链接：<a href="https://www.luogu.com.cn/problem/P1001" target="_blank" rel="noopener">洛谷</a></p>
-<p>首先我们来看一下题目描述：</p>
-<ul>
-<li>输入两个整数 a,b ，输出它们的和 ( ∣a∣,∣b∣≤10<br>^9 )</li>
+
+<p>题目链接：<a href="https://www.luogu.com.cn/problem/P3451" target="_blank" rel="noopener">P3451 [POI2007]ATR-Tourist Attractions</a></p>
+<hr>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给出一张有 $n$ 个点 $m$ 条边的无向图，每条边有边权。</p>
+<p>你需要找一条从 $1$ 到 $n$ 的最短路径，并且这条路径在满足给出的 $g$ 个限制的情况下可以在所有编号从 $2$ 到 $k+1$ 的点上停留过。</p>
+<p>每个限制条件形如 $r_i$，$s_i$，表示停留在 $s_i$ 之前必须先在 $r_i$ 停留过。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><h4 id="注：如果连这道题暴力状压的写法都不会，推荐先去康题解区的“错误”代码（大雾）"><a href="#注：如果连这道题暴力状压的写法都不会，推荐先去康题解区的“错误”代码（大雾）" class="headerlink" title="注：如果连这道题暴力状压的写法都不会，推荐先去康题解区的“错误”代码（大雾）"></a>注：如果连这道题暴力状压的写法都不会，推荐先去康题解区的“错误”代码（大雾）</h4><blockquote>
+<p>……写完状压以后自然是传统 OI 点到为止，保留 SPFA 把 Dij 注释掉，我笑一下决定 AC ，因为这时间，按照传统 OI 电刀喂纸他已经输了。如果用 Dij ，再强的数据也卡不掉我的时间了……我提交不优化了，他突然袭击，来卡我空间，啊，我大意了啊，没有卡空间……♂啊，看来是，有 bear 而来！</p>
+</blockquote>
+<p>$K_{max}=20$ ，状压无疑，预处理出要经过的城市的单源最短路（类似一道叫新年好的题）；</p>
+<p>按照传统的状压 DP ，状态应设为 $f[k][S]$ ：遍历集合为 $S$ 的点后（以下简称点集），停在 $k$ 点所走的最短路程，因为起始城市必为 1，终止城市为 n，故这两个点不计入状态，统计答案时特别处理即可；</p>
+<p>但是我们发现即便如此，空间也会炸（其他题解说得很清楚了），所以考虑优化；</p>
+<h3 id="舍去冗余状态"><a href="#舍去冗余状态" class="headerlink" title="舍去冗余状态"></a>舍去冗余状态</h3><p>要优化空间，最好的方式即是舍去冗余状态，比如滚动数组，但是一般的状压 DP 线性枚举点集，而状态并不线性转移，故无法直接滚动；</p>
+<p>我们分析一下本题状态转移的实质以便优化。枚举到任意点集时，我们从中继续枚举出一点，然后用剩余点组成的点集的答案来优化本点集的答案。不难发现，如此转移状态，<strong>点集中点的数量，即这个数二进制下一的个数，是递增的，且固定+1</strong>，故可以用滚动数组优化；</p>
+<p>按照传统状压 DP 无法使用滚动数组的原因是，通过线性枚举的点集，无法保证二进制下一的数量呈单增。为解决这个问题，只需要预处理出符合每个点集数目 $num$（$num \in (0,k]$）的所有点集即可。对于任一 $num$ ，其包含的点集数为 $C{n \atop k}$，最多为 $C{10 \atop 20}=184756$，空间完全可以承受；</p>
+<h3 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h3><ul>
+<li><p>需要按顺序遍历点，具体操作为预处理出走到每个点之前需要遍历的点集，和状态转移时的点集进行位运算（乱搞）判断即可；</p>
+</li>
+<li><p>如果 $k=1$，直接输出起点到终点的最短路；</p>
+</li>
+<li><p>注意写一般状压的时候不要用这个套路，因为本做法本质上是牺牲时间来优化空间；</p>
+</li>
+<li><p>尽量不要用已死的算法（逃</p>
+</li>
 </ul>
-<p>嗯，这道题是一道我们小学一年级就会做的题，可是我们如何使用c++来实现呢？</p>
-<p>我们可以这样想： <strong>先声明两个变量来存储输入的值，再输出这两个变量相加所得的和。</strong></p>
-<p>我们看到题目中说数据范围是 10^9 ，int 型变量的范围是2的31次方，比题目的数据范围要大，因此我们可以使用整形变量来储存。</p>
-<p>下面是这道题的代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;      //输入输出流所在的头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;    <span class="comment">//使用标准命名空间</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;             <span class="comment">//主函数入口</span></span><br><span class="line">    <span class="keyword">int</span> a, b;           <span class="comment">//声明两个整形变量a和b</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;      <span class="comment">//输入a和b</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a + b;      <span class="comment">//输出a和b的和</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;           <span class="comment">//不要忘记返回0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>end.  </p>
+<hr>
+<blockquote>
+<p>这个出题人不讲武德，来，骗！来，卡常！我六十九岁的老OIer。这好吗？这不好！我劝，这位出题人耗子尾汁，好好反思，以后不要再犯这样的聪明，小聪明，♂啊…OI要以和为贵，要讲污的，不要搞窝里斗，谢谢朋友们！</p>
+</blockquote>
+<hr>
+<p><em>Talk is cheap, show me the code</em></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> K=<span class="number">22</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">20005</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M=<span class="number">200005</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	re <span class="keyword">int</span> ret=<span class="number">0</span>;</span><br><span class="line">	re <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ret=(ret&lt;&lt;<span class="number">1</span>)+(ret&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>);</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125; <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,k;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> nxt;</span><br><span class="line">	<span class="keyword">int</span> to;</span><br><span class="line">	<span class="keyword">int</span> v;</span><br><span class="line">&#125; e[M&lt;&lt;<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> h[N],cnt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> v)</span></span>&#123;</span><br><span class="line">	e[++cnt].nxt=h[x];</span><br><span class="line">	e[cnt].to=y;</span><br><span class="line">	e[cnt].v=v;</span><br><span class="line">	h[x]=cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> cond[K];</span><br><span class="line"><span class="keyword">int</span> dis[K][N];</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[N];</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MK(x,y) make_pair((x),(y))</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">DIJ</span><span class="params">(<span class="keyword">int</span> st)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">    <span class="built_in">memset</span>(dis[st],<span class="number">63</span>,<span class="keyword">sizeof</span>(dis[st]));</span><br><span class="line">    priority_queue &lt; pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line">    dis[st][st]=<span class="number">0</span>; q.push(MK(<span class="number">0</span>,st));</span><br><span class="line">    <span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line">        re <span class="keyword">int</span> l=q.top().second; q.pop();</span><br><span class="line">        <span class="keyword">if</span>(vis[l]) <span class="keyword">continue</span>; vis[l]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(re <span class="keyword">int</span> i=h[l],to,v;i;i=e[i].nxt)&#123;</span><br><span class="line">            to=e[i].to;</span><br><span class="line">            v=e[i].v;</span><br><span class="line">            <span class="keyword">if</span> (dis[st][l]+v&lt;dis[st][to])&#123;</span><br><span class="line">                dis[st][to]=dis[st][l]+v;</span><br><span class="line">                q.push(MK(-dis[st][to],to));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Init</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=read(); m=read(); k=read()+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>,x,y,v;i&lt;=m;i++)&#123;</span><br><span class="line">		x=read(); y=read(); v=read();</span><br><span class="line">		Add(x,y,v); Add(y,x,v);</span><br><span class="line">	&#125; re <span class="keyword">int</span> T=read();</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>,x,y;i&lt;=T;i++)&#123;</span><br><span class="line">		x=read(); y=read();</span><br><span class="line">		cond[y]|=(<span class="number">1</span>&lt;&lt;(x<span class="number">-2</span>)); <span class="comment">//处理到达之前需要遍历的点集</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=k;i++) DIJ(i); <span class="comment">//为了省时间，1和n不必处理</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">K</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> nxt;</span><br><span class="line">	<span class="keyword">int</span> to;</span><br><span class="line">&#125; R[<span class="number">1</span>&lt;&lt;<span class="number">21</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> h_R[K],cnt_R;</span><br><span class="line"><span class="keyword">int</span> sum[K],bl[<span class="number">1</span>&lt;&lt;<span class="number">21</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">2</span>][K][<span class="number">184760</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add_K</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">	R[++cnt_R].nxt=h_R[x];</span><br><span class="line">	R[cnt_R].to=y;</span><br><span class="line">	h_R[x]=cnt_R;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) ((x)&amp;(-(x)))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> For(p) for(re int rg=h_R[(p)],to=R[rg].to;rg;rg=R[rg].nxt,to=R[rg].to)</span></span><br><span class="line"><span class="comment">//遍历点个数为p的点集的集合（绕）</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(k==<span class="number">1</span>)&#123;</span><br><span class="line">		DIJ(<span class="number">1</span>); <span class="comment">//因为刚刚没处理1</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d"</span>,dis[<span class="number">1</span>][n]);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>,num,now;i&lt;<span class="number">1</span>&lt;&lt;(k<span class="number">-1</span>);i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(num=<span class="number">0</span>,now=i;now;now-=lowbit(now),num++); <span class="comment">//求"1"的个数</span></span><br><span class="line">		Add_K(num,i); bl[i]=++sum[num];<span class="comment">//处理编号</span></span><br><span class="line">	&#125;</span><br><span class="line">	For(<span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=k;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(to&amp;(<span class="number">1</span>&lt;&lt;(i<span class="number">-2</span>)))&#123;</span><br><span class="line">				f[<span class="number">0</span>][i][bl[to]]=dis[i][<span class="number">1</span>]; <span class="comment">//从1出发到此的距离</span></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	re <span class="keyword">int</span> l=<span class="number">1</span>,ans=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> NUM=<span class="number">2</span>;NUM&lt;k;NUM++,l^=<span class="number">1</span>)&#123;</span><br><span class="line">		For(NUM)&#123;</span><br><span class="line">			<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">2</span>,now;i&lt;=k;i++)&#123;</span><br><span class="line">				<span class="keyword">if</span>((to&amp;(<span class="number">1</span>&lt;&lt;(i<span class="number">-2</span>)))&amp;&amp;((cond[i]&amp;to)==cond[i]))&#123;</span><br><span class="line">					now=to^(<span class="number">1</span>&lt;&lt;(i<span class="number">-2</span>));  f[l][i][bl[to]]=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line">					<span class="keyword">for</span>(re <span class="keyword">int</span> j=<span class="number">2</span>;j&lt;=k;j++)&#123;</span><br><span class="line">						<span class="keyword">if</span>((now&amp;(<span class="number">1</span>&lt;&lt;(j<span class="number">-2</span>)))&amp;&amp;((cond[j]&amp;now)==cond[j]))&#123;</span><br><span class="line">							<span class="keyword">if</span>(f[l][i][bl[to]]&gt;f[l^<span class="number">1</span>][j][bl[now]]+dis[i][j])&#123;</span><br><span class="line">								f[l][i][bl[to]]=f[l^<span class="number">1</span>][j][bl[now]]+dis[i][j];</span><br><span class="line">							&#125;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	For(k<span class="number">-1</span>)&#123;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=k;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>((to&amp;(<span class="number">1</span>&lt;&lt;(i<span class="number">-2</span>)))&amp;&amp;((cond[i]&amp;to)==cond[i]))&#123;</span><br><span class="line">				ans=min(ans,f[l^<span class="number">1</span>][i][bl[to]]+dis[i][n]);<span class="comment">//加上从这个点到n的距离</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Init(); Solve();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
        
@@ -274,16 +293,16 @@ daovoice('update');
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-09-02
+    2020-11-22
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-09-08
+    2020-11-22
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://yitee.github.io/2020/09/02/1.A+B Problem/" title="1.A+B Problem" target="_blank">1.A+B Problem</a>
+    <a href="https://yitee.github.io/2020/11/22/12.Tourist Attractions/" title="12.[POI2007]ATR-Tourist Attractions" target="_blank">12.[POI2007]ATR-Tourist Attractions</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://yitee.github.io/2020/09/02/1.A+B Problem/" title="1.A+B Problem" target="_blank">https://yitee.github.io/2020/09/02/1.A+B Problem/</a>
+    <a href="https://yitee.github.io/2020/11/22/12.Tourist Attractions/" title="12.[POI2007]ATR-Tourist Attractions" target="_blank">https://yitee.github.io/2020/11/22/12.Tourist Attractions/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -333,11 +352,15 @@ daovoice('update');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">提高</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">顺序结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
         		</li>
       		
 		</ul>
@@ -393,7 +416,7 @@ daovoice('update');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/09/02/1.A+B%20Problem/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/11/22/12.Tourist%20Attractions/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -407,18 +430,9 @@ daovoice('update');
   
 <nav id="article-nav">
   
-    <a href="/2020/09/07/2.%E6%B7%98%E6%B7%98%E6%91%98%E8%8B%B9%E6%9E%9C/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2.淘淘摘苹果
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/01/%E7%9B%8A%E9%A2%98%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4%E9%80%9A%E7%9F%A5/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">益题上线时间通知</div>
+    <a href="/2020/11/17/11.%E7%BB%99%E6%A0%91%E6%9F%93%E8%89%B2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">11.给树染色 Color a tree</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -445,7 +459,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题意"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">2.</span> <span class="toc-text">思路</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#注：如果连这道题暴力状压的写法都不会，推荐先去康题解区的“错误”代码（大雾）"><span class="toc-number">2.1.</span> <span class="toc-text">注：如果连这道题暴力状压的写法都不会，推荐先去康题解区的“错误”代码（大雾）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#舍去冗余状态"><span class="toc-number">3.</span> <span class="toc-text">舍去冗余状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#细节"><span class="toc-number">4.</span> <span class="toc-text">细节</span></a></li></ol>
                     </div>
                 </span>
             </div>
