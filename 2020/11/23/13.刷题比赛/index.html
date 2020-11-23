@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.github.io">
-  <title>Archives: 2020/11 | 益题 Yitee</title>
+  <title>13.P1707 刷题比赛 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="益题 Yitee">
-<meta property="og:url" content="https://yitee.github.io/archives/2020/11/index.html">
+  <meta name="description" content="作者：冰糖梨子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="13.P1707 刷题比赛">
+<meta property="og:url" content="https://yitee.github.io/2020/11/23/13.%E5%88%B7%E9%A2%98%E6%AF%94%E8%B5%9B/index.html">
 <meta property="og:site_name" content="益题 Yitee">
+<meta property="og:description" content="作者：冰糖梨子">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-23T12:04:00.000Z">
+<meta property="article:modified_time" content="2020-11-23T12:07:18.826Z">
 <meta property="article:author" content="益题 Yitee">
+<meta property="article:tag" content="进阶">
+<meta property="article:tag" content="矩阵运算">
+<meta property="article:tag" content="矩阵乘法">
+<meta property="article:tag" content="递推">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -198,36 +206,357 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-13.刷题比赛" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/23/13.%E5%88%B7%E9%A2%98%E6%AF%94%E8%B5%9B/" class="archive-article-date">
-  	<time datetime="2020-11-23T12:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/23/13.%E5%88%B7%E9%A2%98%E6%AF%94%E8%B5%9B/">13.P1707 刷题比赛</a>
+    <h1 class="article-title" itemprop="name">
+      13.P1707 刷题比赛
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/11/23/13.%E5%88%B7%E9%A2%98%E6%AF%94%E8%B5%9B/" class="archive-article-date">
+  	<time datetime="2020-11-23T12:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-23</time>
+</a>
+        
+
+        <div align="center" class="post-count">
+    字数：825字 | 预计阅读时长：4分钟
+</div>        
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+
+        <!-- 添加代码 -->
+        
+        <span class="archive-article-date">
+            阅读量 <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>作者：冰糖梨子</p>
+<hr>
+<a id="more"></a>
+<p><a href="https://www.luogu.com.cn/problem/P1707" target="_blank" rel="noopener">题目来源-luogu</a></p>
+<p><del>我还没怎么见过直接说要用什么算法的题呢</del></p>
+<p>矩阵乘法，矩阵快速幂什么的不再多说，上OI-wiki</p>
+<p><a href="https://oi-wiki.org/math/matrix/" target="_blank" rel="noopener">Link</a></p>
+<p>放几道练习题(循序渐进)：</p>
+<ul>
+<li><p><a href="luogu.com.cn/problem/P1962">P1962</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P1939">P1939 模板</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P1349">P1349</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P1349">P1349</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P5343">P5343</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P2044">P2044</a></p>
+</li>
+</ul>
+<hr>
+<p>按照惯例，推转移矩阵。</p>
+<p>三个式子前面的 $pa_{k+1}$ 这种都比较容易分解，因为式子已经在题目里了，其余的项难分解的基本如下两种：</p>
+<ul>
+<li><p>$(k+1)^2 = (k+1) \times (k+1) = k^2 + 2k + 1$</p>
+</li>
+<li><p>$z^{k+1} = z^k \times z$</p>
+</li>
+</ul>
+<p>然后就可以推出来一个维护 $11$ 个值的矩阵(空白处为 $0$ )：</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">$A_i$</th>
+<th align="right">$B_i$</th>
+<th align="right">$C_i$</th>
+<th align="right">$A_{i+1}$</th>
+<th align="right">$B_{i+1}$</th>
+<th align="right">$C_{i+1}$</th>
+<th align="right">$i$</th>
+<th align="right">$i^2$</th>
+<th align="right">$1$</th>
+<th align="right">$w^k$</th>
+<th align="right">$z^k$</th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">$A_{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$B_{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$C_{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$A_{i+2}$</td>
+<td align="right">q</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">p</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">t</td>
+<td align="right">r</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$B_{i+2}$</td>
+<td align="right"></td>
+<td align="right">v</td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right">u</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$C_{i+2}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">y</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">x</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right">2</td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$i+1$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">${i+1}^2$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$1$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$w^{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">w</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$z^{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">z</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>然后将 lot 矩阵设为以上矩阵：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lot.m[0][3]&#x3D;lot.m[1][4]&#x3D;lot.m[2][5]&#x3D;lot.m[3][4]&#x3D;lot.m[3][5]&#x3D;lot.m[3][8]&#x3D;lot.m[4][3]&#x3D;lot.m[4][5]&#x3D;lot.m[4][9]&#x3D;lot.m[5][3]&#x3D;lot.m[5][4]&#x3D;lot.m[5][6]&#x3D;lot.m[5][10]&#x3D;lot.m[6][6]&#x3D;lot.m[6][8]&#x3D;lot.m[7][7]&#x3D;lot.m[7][8]&#x3D;lot.m[8][8]&#x3D;1;&#x2F;&#x2F;所有为1的格</span><br><span class="line">lot.m[5][8]&#x3D;lot.m[7][6]&#x3D;2;&#x2F;&#x2F;所有为2的格</span><br><span class="line">lot.m[3][0]&#x3D;q;lot.m[3][3]&#x3D;p;lot.m[3][6]&#x3D;t;lot.m[3][7]&#x3D;r;&#x2F;&#x2F;与求A数列相关的格</span><br><span class="line">lot.m[4][1]&#x3D;v;lot.m[4][4]&#x3D;u;lot.m[9][9]&#x3D;w;&#x2F;&#x2F;与求B数列相关的格</span><br><span class="line">lot.m[5][2]&#x3D;y;lot.m[5][5]&#x3D;x;lot.m[10][10]&#x3D;z;&#x2F;&#x2F;与求C数列相关的格</span><br></pre></td></tr></table></figure>
+
+<p>之后是普通的矩阵快速幂，注意进行矩阵乘法需要使用龟速乘防爆</p>
+<p><a href="https://www.cnblogs.com/wifimonster/p/10206866.html" target="_blank" rel="noopener">龟速乘</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">int mut_q(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">	int ans&#x3D;0;</span><br><span class="line">	while(b!&#x3D;0)</span><br><span class="line">	&#123;</span><br><span class="line">		if(b%2&#x3D;&#x3D;1)&#123;ans&#x3D;(ans+a)%pp;&#125;</span><br><span class="line">		a&#x3D;(a*2)%pp;</span><br><span class="line">		b&#x2F;&#x3D;2;</span><br><span class="line">	&#125;</span><br><span class="line">	return ans;</span><br><span class="line">&#125;</span><br><span class="line">node do_mut(node a,node b)</span><br><span class="line">&#123;</span><br><span class="line">	node ans;</span><br><span class="line">	memset(ans.m,0,sizeof(ans.m));</span><br><span class="line">	for(int i&#x3D;0;i&lt;11;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int j&#x3D;0;j&lt;11;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			for(int k&#x3D;0;k&lt;11;k++)</span><br><span class="line">			&#123;</span><br><span class="line">				ans.m[i][j]+&#x3D;mut_q((a.m[i][k]%pp),(b.m[k][j]%pp))%pp;ans.m[i][j]%&#x3D;pp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return ans;</span><br><span class="line">&#125;</span><br><span class="line">void done(int x)</span><br><span class="line">&#123;</span><br><span class="line">	while(x)</span><br><span class="line">	&#123;</span><br><span class="line">		if(x&amp;1)</span><br><span class="line">		&#123;</span><br><span class="line">			one&#x3D;do_mut(one,lot);</span><br><span class="line">		&#125;</span><br><span class="line">		lot&#x3D;do_mut(lot,lot);</span><br><span class="line">		x&gt;&gt;&#x3D;1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后一个问题：如何求答案</p>
+<p><del>其实这个明明很明显的嘛，不多说了</del></p>
+<p>第四行，第五行，第六行分别对应 <code>nodgd</code>,<code>Ciocio</code>,<code>Nicole</code> ,把这三行分别乘上基础数列(如下)，再膜一下，就是每个人的答案了</p>
+<p>$$ 1 ,1,1,3,3,3,1,1,1,w,z $$</p>
+<p>(对应上文表格的11项)</p>
+<p>本部分代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int sumA&#x3D;0,sumB&#x3D;0,sumC&#x3D;0;</span><br><span class="line">for(int i&#x3D;0;i&lt;11;i++)</span><br><span class="line">&#123;</span><br><span class="line">	sumA+&#x3D;one.m[3][i]*doit[i];sumA%&#x3D;pp;</span><br><span class="line">	sumB+&#x3D;one.m[4][i]*doit[i];sumB%&#x3D;pp;</span><br><span class="line">	sumC+&#x3D;one.m[5][i]*doit[i];sumC%&#x3D;pp;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;&quot;nodgd &quot;&lt;&lt;sumA&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&quot;Ciocio &quot;&lt;&lt;sumB&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&quot;Nicole &quot;&lt;&lt;sumC&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+      
+       
+            <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      益题 Yitee
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-11-23
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-11-23
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://yitee.github.io/2020/11/23/13.刷题比赛/" title="13.P1707 刷题比赛" target="_blank">13.P1707 刷题比赛</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://yitee.github.io/2020/11/23/13.刷题比赛/" title="13.P1707 刷题比赛" target="_blank">https://yitee.github.io/2020/11/23/13.刷题比赛/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="/img/warn.png"/></a>
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+        
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -251,203 +580,146 @@ daovoice('update');
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/11/23/13.%E5%88%B7%E9%A2%98%E6%AF%94%E8%B5%9B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/22/12.Tourist%20Attractions/" class="archive-article-date">
-  	<time datetime="2020-11-22T12:44:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/22/12.Tourist%20Attractions/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">12.[POI2007]ATR-Tourist Attractions</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/22/12.Tourist%20Attractions/">12.[POI2007]ATR-Tourist Attractions</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">提高</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
+   
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "jGcu64m7fjMl5KdSrGFjtJrc-MdYXbMMI",
+            app_key: "rOwoqUYW7ASwOGYRN6kG65SG",
+            placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+            avatar:"mp"
+        });
+    }
+</script>
+  </section>
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/17/11.%E7%BB%99%E6%A0%91%E6%9F%93%E8%89%B2/" class="archive-article-date">
-  	<time datetime="2020-11-17T13:18:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-17</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/17/11.%E7%BB%99%E6%A0%91%E6%9F%93%E8%89%B2/">11.给树染色 Color a tree</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">提高</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/11/10.%E7%94%B2%E8%99%AB/" class="archive-article-date">
-  	<time datetime="2020-11-11T13:53:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/11/10.%E7%94%B2%E8%99%AB/">10.[BalticOI 2009 Day1]甲虫</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">提高</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/04/9.%E6%95%B2%E7%A0%96%E5%9D%97/" class="archive-article-date">
-  	<time datetime="2020-11-04T13:53:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/04/9.%E6%95%B2%E7%A0%96%E5%9D%97/">9.[HNOI2004]敲砖块</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">提高</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -494,8 +766,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
