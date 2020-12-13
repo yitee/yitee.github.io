@@ -6,14 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.github.io">
-  <title>益题 Yitee</title>
+  <title>16.数字生成游戏 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="益题 Yitee">
-<meta property="og:url" content="https://yitee.github.io/page/2/index.html">
+  <meta name="description" content="作者：冰糖鸽子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="16.数字生成游戏">
+<meta property="og:url" content="https://yitee.github.io/2020/12/10/16.%E6%95%B0%E5%AD%97%E7%94%9F%E6%88%90%E6%B8%B8%E6%88%8F/index.html">
 <meta property="og:site_name" content="益题 Yitee">
+<meta property="og:description" content="作者：冰糖鸽子">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-10T12:30:00.000Z">
+<meta property="article:modified_time" content="2020-12-13T09:46:19.563Z">
 <meta property="article:author" content="益题 Yitee">
+<meta property="article:tag" content="进阶">
+<meta property="article:tag" content="字符串">
+<meta property="article:tag" content="搜索">
+<meta property="article:tag" content="宽度优先搜索">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -198,30 +206,36 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-6.海港" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-16.数字生成游戏" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/14/6.%E6%B5%B7%E6%B8%AF/">6.海港</a>
+    <h1 class="article-title" itemprop="name">
+      16.数字生成游戏
     </h1>
   
 
 	<!--显示阅读次数-->
 
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+  	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
 <!--显示阅读次数完毕-->
         
-        <a href="/2020/10/14/6.%E6%B5%B7%E6%B8%AF/" class="archive-article-date">
-  	<time datetime="2020-10-14T12:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
+        <a href="/2020/12/10/16.%E6%95%B0%E5%AD%97%E7%94%9F%E6%88%90%E6%B8%B8%E6%88%8F/" class="archive-article-date">
+  	<time datetime="2020-12-10T12:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-10</time>
 </a>
         
 
         <div align="center" class="post-count">
-    字数：707字 | 预计阅读时长：3分钟
+    字数：628字 | 预计阅读时长：2分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -233,12 +247,26 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>欢迎大家参与投稿，一经采用，稿酬从优😁<br>投稿方式:您可以通过我们的联系方式将内容打包发给我们进行审核（内容包括.md文件，昵称，有效联系方式，<br>题目标签，题目来源）。<br>联系方式见<a href="https://yitee.github.io/about/">关于</a>页</p>
+        <p>作者：冰糖鸽子</p>
 <hr>
-<p>作者：Maksim</p>
-        
-          <a class="article-more-a" href="/2020/10/14/6.%E6%B5%B7%E6%B8%AF/#more">more >></a>
-        
+<a id="more"></a>
+<p>一道不错的字符串+宽搜练手题</p>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先显而易见的是，关于一个数字能到达的数字的最大长度，咱们分别看三个操作：</p>
+<ul>
+<li>操作1，位数不变</li>
+<li>操作2，位数减少</li>
+<li>操作3，位数加一，但不会超过初始数字的长度</li>
+</ul>
+<p>所以可以得出结论：不管怎么变化，数字的长度都不会超过原数字的长度，也就是<strong>最大只能搜索到 99999</strong> , 所以毫不犹豫用宽搜</p>
+<p>而在宽搜中，第一次被搜到肯定是最佳答案，所以可以加上一个记忆化，复杂度降到 $\operatorname{O(nm )}$ , 其中 $m$ 是<strong>while中运行一次需要的时间</strong>,在我的程序中，$m$ 约是 $\operatorname{l^3}$，$l$ 是原数的位数</p>
+<p>最多约需要 $\operatorname{O(12500000)}$ 的时间，完全可以在 1s 内跑出来</p>
+<p>最后提一句，因为这三个操作需要插入，删除，交换什么的，所以我用了 <code>string</code> 来存储数字</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>细节说明：在开始把原数的答案设成 $1$ 而不是 $0$ , 意味着所有<strong>可通过原数转换到的数</strong>的答案都大一，所以输出时要减一。而这样处理完后，<strong>不可通过原数转换到的数</strong>的答案在减一后就是 $-1$ , 正好符合题目要求</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Problem: P1132 数字生成游戏</span></span><br><span class="line"><span class="comment">// Contest: Luogu</span></span><br><span class="line"><span class="comment">// URL: https://www.luogu.com.cn/problem/P1132</span></span><br><span class="line"><span class="comment">// Memory Limit: 125 MB</span></span><br><span class="line"><span class="comment">// Time Limit: 1000 ms</span></span><br><span class="line"><span class="comment">// Powered by CP Editor (https://github.com/cpeditor/cpeditor)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> m,l;</span><br><span class="line"><span class="built_in">string</span> n;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;ans;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="built_in">string</span>&gt;q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">done</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> u,v,f;</span><br><span class="line">	<span class="keyword">int</span> fl;</span><br><span class="line">	q.push(n);</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		u=q.front();q.pop();fl=u.length();</span><br><span class="line">		<span class="comment">//cout&lt;&lt;u&lt;&lt;endl;</span></span><br><span class="line">		<span class="comment">//Step 1</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fl;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;fl;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				v=u;</span><br><span class="line">				swap(v[i],v[j]);</span><br><span class="line">				<span class="keyword">if</span>(!ans[v])</span><br><span class="line">				&#123;</span><br><span class="line">					ans[v]=ans[u]+<span class="number">1</span>;</span><br><span class="line">					q.push(v);</span><br><span class="line">				&#125;</span><br><span class="line">				swap(v[i],v[j]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//Step 2</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fl;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			v=u.substr(<span class="number">0</span>,i)+u.substr(i+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">if</span>(!ans[v])</span><br><span class="line">			&#123;</span><br><span class="line">				ans[v]=ans[u]+<span class="number">1</span>;</span><br><span class="line">				q.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// Step 3*</span></span><br><span class="line">		<span class="keyword">if</span>(u.length()&lt;l)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fl<span class="number">-1</span>;i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">char</span> j=u[i]+<span class="number">1</span>;j&lt;u[i+<span class="number">1</span>];j++)</span><br><span class="line">				&#123;</span><br><span class="line">					v=u;</span><br><span class="line">					f=<span class="string">""</span>;</span><br><span class="line">					f+=j;</span><br><span class="line">					v.insert(i+<span class="number">1</span>,f);</span><br><span class="line">					<span class="keyword">if</span>(!ans[v])</span><br><span class="line">					&#123;</span><br><span class="line">						ans[v]=ans[u]+<span class="number">1</span>;</span><br><span class="line">						q.push(v);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;l=n.length();</span><br><span class="line">	ans[n]=<span class="number">1</span>;</span><br><span class="line">	done();</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;ans[n]<span class="number">-1</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
        
             <!-- 《添加版权声明 -->
@@ -247,10 +275,62 @@ daovoice('update');
 
 <!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      益题 Yitee
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2020-12-10
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2020-12-13
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://yitee.github.io/2020/12/10/16.数字生成游戏/" title="16.数字生成游戏" target="_blank">16.数字生成游戏</a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://yitee.github.io/2020/12/10/16.数字生成游戏/" title="16.数字生成游戏" target="_blank">https://yitee.github.io/2020/12/10/16.数字生成游戏/</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="/img/warn.png"/></a>
+    
+  </div>
 
 <!-- 添加版权声明》 -->
         
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -261,11 +341,19 @@ daovoice('update');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">普及</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进阶</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">宽度优先搜索</a>
         		</li>
       		
 		</ul>
@@ -274,16 +362,75 @@ daovoice('update');
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/14/6.%E6%B5%B7%E6%B8%AF/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/12/10/16.%E6%95%B0%E5%AD%97%E7%94%9F%E6%88%90%E6%B8%B8%E6%88%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/04/15.ISBN%E5%8F%B7%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">15.ISBN号码</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -298,759 +445,59 @@ daovoice('update');
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-5.冰雹猜想（角谷猜想）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/07/5.%E5%86%B0%E9%9B%B9%E7%8C%9C%E6%83%B3%EF%BC%88%E8%A7%92%E8%B0%B7%E7%8C%9C%E6%83%B3%EF%BC%89/">5.冰雹猜想（角谷猜想）</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2020/10/07/5.%E5%86%B0%E9%9B%B9%E7%8C%9C%E6%83%B3%EF%BC%88%E8%A7%92%E8%B0%B7%E7%8C%9C%E6%83%B3%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2020-10-07T09:53:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-07</time>
-</a>
-        
-
-        <div align="center" class="post-count">
-    字数：1.1k字 | 预计阅读时长：4分钟
-</div>        
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第五期又来啦！我们也欢迎大家参与投稿，一经采用，稿酬从优😁<br>投稿方式:您可以通过我们的联系方式将内容打包发给我们进行审核（内容包括.md文件，昵称，有效联系方式，<br>题目标签，题目来源）。<br>联系方式见<a href="https://yitee.github.io/about/">关于</a>页</p>
-<hr>
-<p>作者：xyzlh</p>
-        
-          <a class="article-more-a" href="/2020/10/07/5.%E5%86%B0%E9%9B%B9%E7%8C%9C%E6%83%B3%EF%BC%88%E8%A7%92%E8%B0%B7%E7%8C%9C%E6%83%B3%EF%BC%89/#more">more >></a>
-        
-      
-       
-            <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">选择结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">数组</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/07/5.%E5%86%B0%E9%9B%B9%E7%8C%9C%E6%83%B3%EF%BC%88%E8%A7%92%E8%B0%B7%E7%8C%9C%E6%83%B3%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-益题正式上线啦！" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/01/%E7%9B%8A%E9%A2%98%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%E5%95%A6%EF%BC%81/">益题正式上线啦！</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2020/10/01/%E7%9B%8A%E9%A2%98%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%E5%95%A6%EF%BC%81/" class="archive-article-date">
-  	<time datetime="2020-09-30T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-01</time>
-</a>
-        
-
-        <div align="center" class="post-count">
-    字数：516字 | 预计阅读时长：1分钟
-</div>        
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>首先祝大家国庆节和中秋节快乐！ </p>
-        
-          <a class="article-more-a" href="/2020/10/01/%E7%9B%8A%E9%A2%98%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%E5%95%A6%EF%BC%81/#more">more >></a>
-        
-      
-       
-            <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">公告</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/01/%E7%9B%8A%E9%A2%98%E6%AD%A3%E5%BC%8F%E4%B8%8A%E7%BA%BF%E5%95%A6%EF%BC%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-4.明明的随机数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/21/4.%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/">4.明明的随机数</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/21/4.%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2020-09-21T12:19:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
-        
-
-        <div align="center" class="post-count">
-    字数：789字 | 预计阅读时长：2分钟
-</div>        
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>再过几天，益题就要正式上线了，大家掌声欢迎！👏</p>
-<hr>
-<p>作者：xyzlh</p>
-        
-          <a class="article-more-a" href="/2020/09/21/4.%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/#more">more >></a>
-        
-      
-       
-            <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">桶排序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/21/4.%E6%98%8E%E6%98%8E%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-3.Davor" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/17/3.Davor/">3.[COCI2017-2018#6]Davor</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/17/3.Davor/" class="archive-article-date">
-  	<time datetime="2020-09-17T13:41:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-17</time>
-</a>
-        
-
-        <div align="center" class="post-count">
-    字数：385字 | 预计阅读时长：1分钟
-</div>        
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>第三期上线啦！</p>
-<hr>
-<p>作者：X3B0A1</p>
-<hr>
-        
-          <a class="article-more-a" href="/2020/09/17/3.Davor/#more">more >></a>
-        
-      
-       
-            <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">选择结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">循环结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/17/3.Davor/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2.淘淘摘苹果" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/07/2.%E6%B7%98%E6%B7%98%E6%91%98%E8%8B%B9%E6%9E%9C/">2.淘淘摘苹果</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/07/2.%E6%B7%98%E6%B7%98%E6%91%98%E8%8B%B9%E6%9E%9C/" class="archive-article-date">
-  	<time datetime="2020-09-07T11:56:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-07</time>
-</a>
-        
-
-        <div align="center" class="post-count">
-    字数：738字 | 预计阅读时长：2分钟
-</div>        
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本站一般是周一先将题目放上来供大家思考，周四、五会把后面的放上来(^人^)</p>
-<hr>
-<p>作者：xyzlh</p>
-<hr>
-        
-          <a class="article-more-a" href="/2020/09/07/2.%E6%B7%98%E6%B7%98%E6%91%98%E8%8B%B9%E6%9E%9C/#more">more >></a>
-        
-      
-       
-            <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">选择结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">循环结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/07/2.%E6%B7%98%E6%B7%98%E6%91%98%E8%8B%B9%E6%9E%9C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-1.A+B Problem" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/02/1.A+B%20Problem/">1.A+B Problem</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/02/1.A+B%20Problem/" class="archive-article-date">
-  	<time datetime="2020-09-02T07:54:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-02</time>
-</a>
-        
-
-        <div align="center" class="post-count">
-    字数：286字 | 预计阅读时长：1分钟
-</div>        
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>益题终于上线啦！第一篇文章，请大家多多关注😊</p>
-<hr>
-<p>作者：X3B0A1</p>
-<hr>
-        
-          <a class="article-more-a" href="/2020/09/02/1.A+B%20Problem/#more">more >></a>
-        
-      
-       
-            <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">顺序结构</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/02/1.A+B%20Problem/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-益题上线时间通知" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/01/%E7%9B%8A%E9%A2%98%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4%E9%80%9A%E7%9F%A5/">益题上线时间通知</a>
-    </h1>
-  
-
-	<!--显示阅读次数-->
-
-<!--显示阅读次数完毕-->
-        
-        <a href="/2020/09/01/%E7%9B%8A%E9%A2%98%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4%E9%80%9A%E7%9F%A5/" class="archive-article-date">
-  	<time datetime="2020-09-01T12:09:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-01</time>
-</a>
-        
-
-        <div align="center" class="post-count">
-    字数：372字 | 预计阅读时长：1分钟
-</div>        
-
-        <!-- 需要添加的位置 -->
-        <!-- 开始添加字数统计-->
-        
-        <!-- 添加完成 -->
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-上线时间"><a href="#1-上线时间" class="headerlink" title="1.上线时间"></a>1.上线时间</h2><p>益题于2020年9月1日进行试运行，10月1日正式开放。<br>热烈欢迎👏  </p>
-        
-          <a class="article-more-a" href="/2020/09/01/%E7%9B%8A%E9%A2%98%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4%E9%80%9A%E7%9F%A5/#more">more >></a>
-        
-      
-       
-            <!-- 《添加版权声明 -->
-<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
-
-
-<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
-
-  <div class="declare" hidden="hidden"></div>
-
-<!-- 添加版权声明》 -->
-        
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">公告</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/01/%E7%9B%8A%E9%A2%98%E4%B8%8A%E7%BA%BF%E6%97%B6%E9%97%B4%E9%80%9A%E7%9F%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
+   
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "jGcu64m7fjMl5KdSrGFjtJrc-MdYXbMMI",
+            app_key: "rOwoqUYW7ASwOGYRN6kG65SG",
+            placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+            avatar:"mp"
+        });
+    }
+</script>
+  </section>
 
 
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1097,8 +544,8 @@ setInterval("createtime()",250);
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
