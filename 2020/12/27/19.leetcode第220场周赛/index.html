@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.github.io">
-  <title>18.[HNOI2002]营业额统计 | 益题 Yitee</title>
+  <title>19.LeetCode第220场周赛 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者：H_D_NULL">
+  <meta name="description" content="作者：Maksim">
 <meta property="og:type" content="article">
-<meta property="og:title" content="18.[HNOI2002]营业额统计">
-<meta property="og:url" content="https://yitee.github.io/2020/12/13/18.%E8%90%A5%E4%B8%9A%E9%A2%9D%E7%BB%9F%E8%AE%A1/index.html">
+<meta property="og:title" content="19.LeetCode第220场周赛">
+<meta property="og:url" content="https://yitee.github.io/2020/12/27/19.leetcode%E7%AC%AC220%E5%9C%BA%E5%91%A8%E8%B5%9B/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="作者：H_D_NULL">
+<meta property="og:description" content="作者：Maksim">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-13T12:50:00.000Z">
-<meta property="article:modified_time" content="2020-12-13T12:55:24.247Z">
+<meta property="article:published_time" content="2020-12-27T13:50:00.000Z">
+<meta property="article:modified_time" content="2020-12-27T14:00:02.971Z">
 <meta property="article:author" content="益题 Yitee">
 <meta property="article:tag" content="进阶">
-<meta property="article:tag" content="SBT">
-<meta property="article:tag" content="Splay">
-<meta property="article:tag" content="概率论">
+<meta property="article:tag" content="提高">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -206,14 +204,14 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-18.营业额统计" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-19.leetcode第220场周赛" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      18.[HNOI2002]营业额统计
+      19.LeetCode第220场周赛
     </h1>
   
 
@@ -229,13 +227,13 @@ daovoice('update');
 
 <!--显示阅读次数完毕-->
         
-        <a href="/2020/12/13/18.%E8%90%A5%E4%B8%9A%E9%A2%9D%E7%BB%9F%E8%AE%A1/" class="archive-article-date">
-  	<time datetime="2020-12-13T12:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-13</time>
+        <a href="/2020/12/27/19.leetcode%E7%AC%AC220%E5%9C%BA%E5%91%A8%E8%B5%9B/" class="archive-article-date">
+  	<time datetime="2020-12-27T13:50:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-27</time>
 </a>
         
 
         <div align="center" class="post-count">
-    字数：613字 | 预计阅读时长：2分钟
+    字数：1.3k字 | 预计阅读时长：7分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -247,13 +245,135 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>作者：H_D_NULL</p>
-<hr>
+        <p>作者：Maksim</p>
 <a id="more"></a>
-<h4 id="本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。"><a href="#本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。" class="headerlink" title="本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。"></a>本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（<del>虽然快是快</del>），所以在下提供一个将左旋右旋结合的写法。</h4><p><del>Splay就不再赘述，翻翻前面大佬的题解就知道了</del></p>
-<p>luogu说不能提交这道题的题解了,所以就写到这里吧</p>
-<p>下面上代码</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mn 33000</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ans,n,a;</span><br><span class="line"><span class="built_in">map</span> &lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; vis;<span class="comment">//懒人写法,导致程序变慢</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Splay</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> son[mn][<span class="number">2</span>],fa[mn],v[mn],cnt,root;</span><br><span class="line">    <span class="comment">//son:左右儿子结点  fa:父结点  v:data  cnt:编号</span></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">rot</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> father=fa[x],gf=fa[father];<span class="comment">//父亲和祖父……</span></span><br><span class="line">		<span class="keyword">int</span> s=(son[father][<span class="number">1</span>]==x);<span class="comment">//经典，判断是左儿子还是右儿子</span></span><br><span class="line">		<span class="keyword">int</span> sn=son[x][!s];<span class="comment">//x对应位置上的儿子</span></span><br><span class="line">		son[father][s]=sn;</span><br><span class="line">		fa[sn]=father;</span><br><span class="line">		son[fa[x]=gf][son[gf][<span class="number">1</span>]==father]=x;</span><br><span class="line">		son[fa[father]=x][!s]=father;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">splay</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">while</span>(fa[x])&#123;</span><br><span class="line">			<span class="keyword">if</span>(fa[fa[x]]&amp;&amp;(son[fa[fa[x]]][<span class="number">1</span>]==fa[x])==(son[fa[x]][<span class="number">1</span>]==x)) rot(fa[x]);</span><br><span class="line">            <span class="comment">//如果其父结点有父结点且x一家三代(形象)共线,则先旋转x的父结点(不要问为什么)</span></span><br><span class="line">			rot(x);</span><br><span class="line">		&#125;</span><br><span class="line">		root=x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> p,q;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		v[q=<span class="number">0</span>]=x;p=root;</span><br><span class="line">		<span class="keyword">while</span>(v[p]!=x)&#123; q=p;p=son[p][v[p]&lt;x];&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		find(x);<span class="comment">//找到x应插入的位置,及整棵树平衡</span></span><br><span class="line">		v[++cnt]=x;</span><br><span class="line">		fa[cnt]=q;</span><br><span class="line">		son[q][v[q]&lt;x]=cnt;</span><br><span class="line">		splay(cnt);<span class="comment">//旋转到根节点位置</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">count</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> minn=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line">		<span class="keyword">if</span>(cnt&lt;<span class="number">2</span>)&#123;</span><br><span class="line">			ans+=v[root];</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> L=son[root][<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//从左儿子开始,找左子树最右结点,及有序集合中root的前驱</span></span><br><span class="line">		<span class="keyword">while</span>(L!=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!son[L][<span class="number">1</span>]) <span class="keyword">break</span>;</span><br><span class="line">			L=son[L][<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(L!=<span class="number">0</span>) minn=min(minn,v[root]-v[L]);</span><br><span class="line">		L=son[root][<span class="number">1</span>];</span><br><span class="line">        <span class="comment">//找后继,因为root与前驱后继之差的绝对值最小</span></span><br><span class="line">		<span class="keyword">while</span>(L!=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!son[L][<span class="number">0</span>]) <span class="keyword">break</span>;</span><br><span class="line">			L=son[L][<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(L!=<span class="number">0</span>) minn=min(minn,v[L]-v[root]);</span><br><span class="line">		ans+=minn;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;S;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">		<span class="keyword">if</span>(vis[a]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">//懒人写法,大佬们也可以不用STL,而在find中做文章</span></span><br><span class="line">		vis[a]=<span class="number">1</span>;</span><br><span class="line">		S.insert(a);</span><br><span class="line">		S.count();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//P.S. 我不知道这个代码能不能过,伸手党注意</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="题目一-reformat-phone-number"><a href="#题目一-reformat-phone-number" class="headerlink" title="题目一    reformat phone number"></a>题目一    reformat phone number</h2><p>You are given a phone number as a string number. number consists of digits, spaces ‘ ‘, and/or dashes ‘-‘.</p>
+<p>You would like to reformat the phone number in a certain manner. Firstly, remove all spaces and dashes. Then, group the digits from left to right into blocks of length 3 until there are 4 or fewer digits. The final digits are then grouped as follows:</p>
+<ul>
+<li>2 digits: A single block of length 2.</li>
+<li>3 digits: A single block of length 3.</li>
+<li>4 digits: Two blocks of length 2 each.</li>
+</ul>
+<p>The blocks are then joined by dashes. Notice that the reformatting process should <strong>never</strong> produce any blocks of length 1 and produce <strong>at most</strong> two blocks of length 2.</p>
+<p>Return the phone number after formatting.</p>
+<br>
+
+<p><strong>Example 1:</strong></p>
+<p><strong>Input:</strong> number = “1-23-45 6”<br><strong>Output:</strong>“123-456”<br><strong>Explanation:</strong> The digits are “123456”.<br>Step 1: There are more than 4 digits, so group the next 3 digits. The 1st block is “123”.<br>Step 2: There are 3 digits remaining, so put them in a single block of length 3. The 2nd block is “456”.<br>Joining the blocks gives “123-456”.</p>
+<br>
+
+<p><strong>Example 2:</strong></p>
+<p><strong>Input:</strong> number = “123 4-567”</p>
+<p><strong>Output:</strong> “123-45-67”</p>
+<p><strong>Explanation:</strong> The digits are “1234567”.<br>Step 1: There are more than 4 digits, so group the next 3 digits. The 1st block is “123”.<br>Step 2: There are 4 digits left, so split them into two blocks of length 2. The blocks are “45” and “67”.<br>Joining the blocks gives “123-45-67”.</p>
+<br>
+
+<p><strong>Example 3:</strong></p>
+<p><strong>Input:</strong> number = “123 4-5678”</p>
+<p><strong>Output:</strong> “123-456-78”</p>
+<p><strong>Explanation:</strong> The digits are “12345678”.<br>Step 1: The 1st block is “123”.<br>Step 2: The 2nd block is “456”.<br>Step 3: There are 2 digits left, so put them in a single block of length 2. The 3rd block is “78”.<br>Joining the blocks gives “123-456-78”.</p>
+<br>
+
+<p><strong>Example 4:</strong></p>
+<p><strong>Input:</strong> number = “12”<br><strong>Output:</strong> “12”</p>
+<p><strong>Example 5:</strong></p>
+<p><strong>Input:</strong> number = “–17-5 229 35-39475 “<br><strong>Output:</strong> “175-229-353-94-75”</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>2 &lt;= number.length &lt;= 100</li>
+<li>number consists of digits and the characters ‘-‘ and ‘ ‘.</li>
+<li>There are at least two digits in number.</li>
+</ul>
+<hr>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>时间复杂度：$O(n)$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">reformatNumber</span><span class="params">(<span class="built_in">string</span> number)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ret = <span class="string">""</span>,ans = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: number)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isdigit</span>(c)) ret += c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> n = ret.length();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(n-i&gt;<span class="number">4</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans.length()) ans += <span class="string">'-'</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++) ans += ret[i++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n-i==<span class="number">4</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans.length()) ans += <span class="string">'-'</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;j++) ans += ret[i++];</span><br><span class="line">                <span class="keyword">if</span>(ans.length()) ans += <span class="string">'-'</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;j++) ans += ret[i++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n-i==<span class="number">3</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans.length()) ans += <span class="string">'-'</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++) ans += ret[i++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(n-i==<span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans.length()) ans += <span class="string">'-'</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;j++) ans += ret[i++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(ans.length()) ans += <span class="string">'-'</span>;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">1</span>;j++) ans += ret[i++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<center><del>模拟类型的简单题</del></center>
+
+<hr>
+<h2 id="题目二maximum-erasure-value"><a href="#题目二maximum-erasure-value" class="headerlink" title="题目二maximum erasure value"></a>题目二maximum erasure value</h2><p>You are given an array of positive integers nums and want to erase a subarray containing <strong>unique elements</strong>. The <strong>score</strong> you get by erasing the subarray is equal to the <strong>sum</strong> of its elements.</p>
+<p>Return the <strong>maximum score</strong> you can get by erasing <strong>exactly one</strong> subarray.</p>
+<p>An array b is called to be a subarray of a if it forms a contiguous subsequence of a, that is, if it is equal to a[l],a[l+1],…,a[r] for some (l,r).</p>
+<br>
+
+<p><strong>Example 1:</strong></p>
+<p><strong>Input:</strong> nums = [4,2,4,5,6]</p>
+<p><strong>Output:</strong> 17</p>
+<p><strong>Explanation:</strong> The optimal subarray here is [2,4,5,6].</p>
+<br>
+
+<p><strong>Example 2:</strong></p>
+<p><strong>Input:</strong> nums = [5,2,1,2,5,2,1,2,5]</p>
+<p><strong>Output:</strong> 8</p>
+<p><strong>Explanation:</strong> The optimal subarray here is [5,2,1] or [1,2,5].</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>$1 &lt;= nums.length &lt;= 10^5$</li>
+<li>$1 &lt;= nums[i] &lt;= 10^4$</li>
+</ul>
+<hr>
+<h2 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h2><h3 id="思路：每次移动右指针，当某个数出现两次后，移动左指针到合法位置"><a href="#思路：每次移动右指针，当某个数出现两次后，移动左指针到合法位置" class="headerlink" title="思路：每次移动右指针，当某个数出现两次后，移动左指针到合法位置"></a>思路：每次移动右指针，当某个数出现两次后，移动左指针到合法位置</h3><p>时间复杂度：$O(n)$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> vis[<span class="number">10001</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maximumUniqueSubarray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lef = <span class="number">0</span>, n = nums.size();</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>, ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            vis[nums[i]]++;</span><br><span class="line">            ret += nums[i];</span><br><span class="line">            <span class="keyword">while</span>(vis[nums[i]]&gt;=<span class="number">2</span>) </span><br><span class="line">            &#123;</span><br><span class="line">                vis[nums[lef]]--;</span><br><span class="line">                ret -= nums[lef];</span><br><span class="line">                lef++;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = max(ans,ret);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="题目三-jump-game-vi"><a href="#题目三-jump-game-vi" class="headerlink" title="题目三  jump game vi"></a>题目三  jump game vi</h2><p>You are given a <strong>0-indexed</strong> integer array nums and an integer k.</p>
+<p>You are initially standing at index 0. In one move, you can jump at most k steps forward without going outside the boundaries of the array. That is, you can jump from index i to any index in the range $[i + 1, min(n - 1, i + k)]$ <strong>inclusive</strong>.</p>
+<p>You want to reach the last index of the array (index n - 1). Your <strong>score</strong> is the <strong>sum</strong> of all $nums[j]$ for each index <code>j</code> you visited in the array.</p>
+<p>Return the <strong>maximum score</strong> you can get.</p>
+<br>
+
+<p><strong>Example 1:</strong></p>
+<p><strong>Input:</strong> nums = [1,-1,-2,4,-7,3], k = 2<br><strong>Output:</strong> 7<br><strong>Explanation:</strong> You can choose your jumps forming the subsequence [1,-1,4,3] (underlined above). The sum is 7.</p>
+<br>
+
+<p><strong>Example 2:</strong></p>
+<p><strong>Input:</strong> nums = [10,-5,-2,4,0,3], k = 3</p>
+<p><strong>Output:</strong> 17</p>
+<p><strong>Explanation:</strong> You can choose your jumps forming the<br>subsequence [10,4,3] (underlined above). The sum is 17.</p>
+<br>
+
+<p><strong>Example 3:</strong></p>
+<p><strong>Input:</strong> nums = [1,-5,-20,4,-1,3,-6,-3], k = 2</p>
+<p><strong>Output:</strong> 0</p>
+<br>
+
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>$1 &lt;= nums.length, k &lt;= 10^5$</li>
+<li>$-10^4 &lt;= nums[i] &lt;= 10^4$</li>
+</ul>
+<h2 id="题目三-maximum-erasure-value"><a href="#题目三-maximum-erasure-value" class="headerlink" title="题目三  maximum erasure value"></a>题目三  maximum erasure value</h2><p>You are given an array of positive integers nums and want to erase a subarray containing unique elements. The score you get by erasing the subarray is equal to the sum of its elements.</p>
+<p>Return the maximum score you can get by erasing exactly one subarray.</p>
+<p>An array b is called to be a subarray of a if it forms a contiguous subsequence of a, that is, if it is equal to a[l],a[l+1],…,a[r] for some (l,r).</p>
+<br>
+
+<p><strong>Example 1:</strong></p>
+<p><strong>Input:</strong> nums = [1,-1,-2,4,-7,3], k = 2</p>
+<p><strong>Output:</strong> 7</p>
+<p><strong>Explanation:</strong> You can choose your jumps forming the subsequence [1,-1,4,3] (underlined above). The sum is 7.</p>
+<br>
+
+<p><strong>Example 2:</strong></p>
+<p><strong>Input:</strong> nums = [10,-5,-2,4,0,3], k = 3</p>
+<p><strong>Output:</strong> 17</p>
+<p><strong>Explanation:</strong> You can choose your jumps forming the subsequence [10,4,3] (underlined above). The sum is 17.</p>
+<br>
+
+<p><strong>Example 3:</strong></p>
+<p><strong>Input:</strong> nums = [1,-5,-20,4,-1,3,-6,-3], k = 2</p>
+<p><strong>Output:</strong> 0</p>
+<p><strong>Constraints:</strong></p>
+<ul>
+<li>$1 &lt;= nums.length, k &lt;= 10^5$</li>
+<li>$-10^4 &lt;= nums[i] &lt;= 10^4$</li>
+</ul>
+<hr>
+<h2 id="题解-2"><a href="#题解-2" class="headerlink" title="题解"></a>题解</h2><h3 id="思路-单调队列优化DP"><a href="#思路-单调队列优化DP" class="headerlink" title="思路:单调队列优化DP"></a>思路:单调队列优化DP</h3><p>$$<br>dp[i] = \max(dp[i-1],\dots,dp[i-k])+nums[i]<br>$$</p>
+<p>用单调队列来维护后连续k个dp值得最大值即可</p>
+<p>时间复杂度 $O(n)$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> dp[<span class="number">100001</span>],dq[<span class="number">100001</span>];</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxResult</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lef = <span class="number">0</span>, rig = <span class="number">0</span>, n = nums.size();</span><br><span class="line">        dq[rig++] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>] = nums[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            dp[i] = nums[i] + dp[dq[lef]];</span><br><span class="line">            <span class="keyword">while</span>(lef &lt; rig &amp;&amp; i - dq[lef] + <span class="number">1</span> &gt;= k + <span class="number">1</span>) lef++;</span><br><span class="line">            <span class="keyword">while</span>(lef &lt; rig &amp;&amp; dp[dq[rig<span class="number">-1</span>]] &lt;= dp[i]) rig--;</span><br><span class="line">            dq[rig++] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
 
       
        
@@ -270,16 +390,16 @@ daovoice('update');
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2020-12-13
+    2020-12-27
     <br>
     <strong class="update-time">最后更新：</strong>
-    2020-12-13
+    2020-12-27
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://yitee.github.io/2020/12/13/18.营业额统计/" title="18.[HNOI2002]营业额统计" target="_blank">18.[HNOI2002]营业额统计</a>
+    <a href="https://yitee.github.io/2020/12/27/19.leetcode第220场周赛/" title="19.LeetCode第220场周赛" target="_blank">19.LeetCode第220场周赛</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://yitee.github.io/2020/12/13/18.营业额统计/" title="18.[HNOI2002]营业额统计" target="_blank">https://yitee.github.io/2020/12/13/18.营业额统计/</a>
+    <a href="https://yitee.github.io/2020/12/27/19.leetcode第220场周赛/" title="19.LeetCode第220场周赛" target="_blank">https://yitee.github.io/2020/12/27/19.leetcode第220场周赛/</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -333,15 +453,7 @@ daovoice('update');
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SBT</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Splay</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">概率论</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">提高</a>
         		</li>
       		
 		</ul>
@@ -397,7 +509,7 @@ daovoice('update');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/12/13/18.%E8%90%A5%E4%B8%9A%E9%A2%9D%E7%BB%9F%E8%AE%A1/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.github.io/2020/12/27/19.leetcode%E7%AC%AC220%E5%9C%BA%E5%91%A8%E8%B5%9B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -411,18 +523,9 @@ daovoice('update');
   
 <nav id="article-nav">
   
-    <a href="/2020/12/27/19.leetcode%E7%AC%AC220%E5%9C%BA%E5%91%A8%E8%B5%9B/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          19.LeetCode第220场周赛
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/12/13/17.Covering%20the%20Corral%20G/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">17.[USACO10FEB]Covering the Corral G</div>
+    <a href="/2020/12/13/18.%E8%90%A5%E4%B8%9A%E9%A2%9D%E7%BB%9F%E8%AE%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">18.[HNOI2002]营业额统计</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -449,7 +552,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。"><span class="toc-number">1.</span> <span class="toc-text">本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#题目一-reformat-phone-number"><span class="toc-number">1.</span> <span class="toc-text">题目一    reformat phone number</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-number">2.</span> <span class="toc-text">题解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目二maximum-erasure-value"><span class="toc-number">3.</span> <span class="toc-text">题目二maximum erasure value</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解-1"><span class="toc-number">4.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路：每次移动右指针，当某个数出现两次后，移动左指针到合法位置"><span class="toc-number">4.1.</span> <span class="toc-text">思路：每次移动右指针，当某个数出现两次后，移动左指针到合法位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目三-jump-game-vi"><span class="toc-number">5.</span> <span class="toc-text">题目三  jump game vi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题目三-maximum-erasure-value"><span class="toc-number">6.</span> <span class="toc-text">题目三  maximum erasure value</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解-2"><span class="toc-number">7.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路-单调队列优化DP"><span class="toc-number">7.1.</span> <span class="toc-text">思路:单调队列优化DP</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
