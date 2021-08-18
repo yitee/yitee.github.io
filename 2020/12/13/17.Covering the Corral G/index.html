@@ -9,12 +9,12 @@
   <link rel="dns-prefetch" href="https://yitee.top">
   <title>17.[USACO10FEB]Covering the Corral G | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者：H_D_NULL  ---">
+  <meta name="description" content="作者：H_D_NULL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="17.[USACO10FEB]Covering the Corral G">
 <meta property="og:url" content="https://yitee.top/2020/12/13/17.Covering%20the%20Corral%20G/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="作者：H_D_NULL  ---">
+<meta property="og:description" content="作者：H_D_NULL">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-13T12:30:00.000Z">
 <meta property="article:modified_time" content="2020-12-13T12:44:14.176Z">
@@ -98,7 +98,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">16.3k</span>
+    总字数 <span class="post-count">17k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -246,28 +246,16 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-作者：H_D_NULL
-
----
+        <p>作者：H_D_NULL</p>
+<hr>
 <a id="more"></a>
-### ~~不是我说，还是外国的题出得简单一些~~
-
-
-------------
-
-首先分析题面，第一眼觉得是一个贪心。然后仔细看了一下，居然是一个环！太不好贪心了。还有段与段之间还有包含关系，不能支持简单的贪心。最后总体分析了一下，得出本题最大的难点：~~那是什么鬼图啊？！~~
-
-经过以上分析，我们不难得出本题的做法：~~**贪心**~~。
-
-------------
-
-**大体贪心策略：** 管他是不是环，对于当前已选的，只要找到一类围栏，使其起始端点在已选围栏的包含范围之内（或刚好能接上），然后在这些围栏里，找延伸得最远的（及右端点的值越大的）。正确性不难证明，只是复杂度暂时有些问题。枚举要选的第一个围栏，然后如上述策略贪心地加围栏，直到形成一个环。
-
-**进一步优化：** 策略是没得优化了，关键就看能不能用更少的时间。大多数的人的做法（特指某篇题解）是只预处理对于选了某一条边的情况，下一次贪心选的边，这样做完全没有问题，~~但是没有逼格~~ 。而有些人（特指另一篇）给我们提供了更优的思路——**倍增** 。用类似找LCA的方法，可以快速找到从一段围栏出发，到结束所用的最少围栏数。~~P.S. 似乎加了倍增优化和暴力跳边实际的时间差距不大？~~
-
-*Talk is cheap, show me the code.*
-
+<h3 id="不是我说，还是外国的题出得简单一些"><a href="#不是我说，还是外国的题出得简单一些" class="headerlink" title="不是我说，还是外国的题出得简单一些"></a><del>不是我说，还是外国的题出得简单一些</del></h3><hr>
+<p>首先分析题面，第一眼觉得是一个贪心。然后仔细看了一下，居然是一个环！太不好贪心了。还有段与段之间还有包含关系，不能支持简单的贪心。最后总体分析了一下，得出本题最大的难点：<del>那是什么鬼图啊？！</del></p>
+<p>经过以上分析，我们不难得出本题的做法：<del><strong>贪心</strong></del>。</p>
+<hr>
+<p><strong>大体贪心策略：</strong> 管他是不是环，对于当前已选的，只要找到一类围栏，使其起始端点在已选围栏的包含范围之内（或刚好能接上），然后在这些围栏里，找延伸得最远的（及右端点的值越大的）。正确性不难证明，只是复杂度暂时有些问题。枚举要选的第一个围栏，然后如上述策略贪心地加围栏，直到形成一个环。</p>
+<p><strong>进一步优化：</strong> 策略是没得优化了，关键就看能不能用更少的时间。大多数的人的做法（特指某篇题解）是只预处理对于选了某一条边的情况，下一次贪心选的边，这样做完全没有问题，<del>但是没有逼格</del> 。而有些人（特指另一篇）给我们提供了更优的思路——<strong>倍增</strong> 。用类似找LCA的方法，可以快速找到从一段围栏出发，到结束所用的最少围栏数。<del>P.S. 似乎加了倍增优化和暴力跳边实际的时间差距不大？</del></p>
+<p><em>Talk is cheap, show me the code.</em></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Maxm 100005</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> C,M,Ans=Maxm,tot;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	re <span class="keyword">int</span> ret=<span class="number">0</span>;</span><br><span class="line">	re <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>) c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>) ret=(ret&lt;&lt;<span class="number">1</span>)+(ret&lt;&lt;<span class="number">3</span>)+c-<span class="string">'0'</span>,c=getchar();</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">dr</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> L,R;</span><br><span class="line">	<span class="keyword">int</span> Nxt[<span class="number">20</span>];</span><br><span class="line">&#125; t1[Maxm],t[Maxm&lt;&lt;<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(dr x,dr y)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> x.L&lt;y.L;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	C=read();</span><br><span class="line">	M=read();</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">		t1[i].L=read();</span><br><span class="line">		t1[i].R=t1[i].L+read();</span><br><span class="line">	&#125;</span><br><span class="line">	sort(t1+<span class="number">1</span>,t1+<span class="number">1</span>+M,cmp);</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123; <span class="comment">//去重（目测有大用）</span></span><br><span class="line">		<span class="keyword">if</span>(t1[i].R&gt;t[tot].R)&#123;</span><br><span class="line">			t[++tot]=t1[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	M=tot;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">		t[i+M].L=t[i].L+C;</span><br><span class="line">		t[i+M].R=t[i].R+C;</span><br><span class="line">	&#125;</span><br><span class="line">	re <span class="keyword">int</span> tmp=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=M&lt;&lt;<span class="number">1</span>;i++)&#123;</span><br><span class="line">		t[i].Nxt[<span class="number">0</span>]=t[i<span class="number">-1</span>].Nxt[<span class="number">0</span>];</span><br><span class="line">		<span class="keyword">for</span>(;tmp&lt;=M&lt;&lt;<span class="number">1</span>&amp;&amp;t[tmp].L&lt;=t[i].R;tmp++)&#123; <span class="comment">//贪心：找直接接在自己后面的那条围栏</span></span><br><span class="line">			<span class="keyword">if</span>(t[tmp].R&gt;t[t[i].Nxt[<span class="number">0</span>]].R) t[i].Nxt[<span class="number">0</span>]=tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=M&lt;&lt;<span class="number">1</span>;i;i--)&#123; <span class="comment">//预处理倍增数组</span></span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">18</span>&amp;&amp;t[t[i].Nxt[j<span class="number">-1</span>]].Nxt[j<span class="number">-1</span>];j++)&#123;</span><br><span class="line">			t[i].Nxt[j]=t[t[i].Nxt[j<span class="number">-1</span>]].Nxt[j<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>,sum,now;i&lt;=M;i++)&#123;</span><br><span class="line">		sum=<span class="number">1</span>; now=i;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> j=<span class="number">18</span>;j&gt;=<span class="number">0</span>;j--)&#123; <span class="comment">//倍增从大往小找</span></span><br><span class="line">			<span class="keyword">if</span>(t[now].Nxt[j]&amp;&amp;t[t[now].Nxt[j]].R-t[i].L&lt;C)&#123;</span><br><span class="line">				now=t[now].Nxt[j];</span><br><span class="line">				sum+=<span class="number">1</span>&lt;&lt;j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(t[now].Nxt[<span class="number">0</span>]&amp;&amp;t[now].R-t[i].L&lt;C)&#123;</span><br><span class="line">			sum++; now=t[now].Nxt[<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(t[now].R-t[i].L&gt;=C) Ans=min(Ans,sum);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,Ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -456,7 +444,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#不是我说，还是外国的题出得简单一些"><span class="toc-number">1.</span> <span class="toc-text">不是我说，还是外国的题出得简单一些</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -648,14 +636,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">普及</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进阶</a>
               </li>
              
@@ -664,7 +644,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,7 +688,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -689,26 +697,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

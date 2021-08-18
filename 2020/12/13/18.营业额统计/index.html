@@ -9,12 +9,12 @@
   <link rel="dns-prefetch" href="https://yitee.top">
   <title>18.[HNOI2002]营业额统计 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者：H_D_NULL  ---">
+  <meta name="description" content="作者：H_D_NULL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18.[HNOI2002]营业额统计">
 <meta property="og:url" content="https://yitee.top/2020/12/13/18.%E8%90%A5%E4%B8%9A%E9%A2%9D%E7%BB%9F%E8%AE%A1/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="作者：H_D_NULL  ---">
+<meta property="og:description" content="作者：H_D_NULL">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-13T12:50:00.000Z">
 <meta property="article:modified_time" content="2020-12-13T12:55:24.247Z">
@@ -100,7 +100,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">16.3k</span>
+    总字数 <span class="post-count">17k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -248,19 +248,12 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-作者：H_D_NULL
-
----
+        <p>作者：H_D_NULL</p>
+<hr>
 <a id="more"></a>
-#### 本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（~~虽然快是快~~），所以在下提供一个将左旋右旋结合的写法。
-
-~~Splay就不再赘述，翻翻前面大佬的题解就知道了~~
-
-luogu说不能提交这道题的题解了,所以就写到这里吧
-
-下面上代码
-
+<h4 id="本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。"><a href="#本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。" class="headerlink" title="本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。"></a>本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（<del>虽然快是快</del>），所以在下提供一个将左旋右旋结合的写法。</h4><p><del>Splay就不再赘述，翻翻前面大佬的题解就知道了</del></p>
+<p>luogu说不能提交这道题的题解了,所以就写到这里吧</p>
+<p>下面上代码</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mn 33000</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> ans,n,a;</span><br><span class="line"><span class="built_in">map</span> &lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; vis;<span class="comment">//懒人写法,导致程序变慢</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Splay</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> son[mn][<span class="number">2</span>],fa[mn],v[mn],cnt,root;</span><br><span class="line">    <span class="comment">//son:左右儿子结点  fa:父结点  v:data  cnt:编号</span></span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">rot</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> father=fa[x],gf=fa[father];<span class="comment">//父亲和祖父……</span></span><br><span class="line">		<span class="keyword">int</span> s=(son[father][<span class="number">1</span>]==x);<span class="comment">//经典，判断是左儿子还是右儿子</span></span><br><span class="line">		<span class="keyword">int</span> sn=son[x][!s];<span class="comment">//x对应位置上的儿子</span></span><br><span class="line">		son[father][s]=sn;</span><br><span class="line">		fa[sn]=father;</span><br><span class="line">		son[fa[x]=gf][son[gf][<span class="number">1</span>]==father]=x;</span><br><span class="line">		son[fa[father]=x][!s]=father;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">splay</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		<span class="keyword">while</span>(fa[x])&#123;</span><br><span class="line">			<span class="keyword">if</span>(fa[fa[x]]&amp;&amp;(son[fa[fa[x]]][<span class="number">1</span>]==fa[x])==(son[fa[x]][<span class="number">1</span>]==x)) rot(fa[x]);</span><br><span class="line">            <span class="comment">//如果其父结点有父结点且x一家三代(形象)共线,则先旋转x的父结点(不要问为什么)</span></span><br><span class="line">			rot(x);</span><br><span class="line">		&#125;</span><br><span class="line">		root=x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> p,q;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		v[q=<span class="number">0</span>]=x;p=root;</span><br><span class="line">		<span class="keyword">while</span>(v[p]!=x)&#123; q=p;p=son[p][v[p]&lt;x];&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		find(x);<span class="comment">//找到x应插入的位置,及整棵树平衡</span></span><br><span class="line">		v[++cnt]=x;</span><br><span class="line">		fa[cnt]=q;</span><br><span class="line">		son[q][v[q]&lt;x]=cnt;</span><br><span class="line">		splay(cnt);<span class="comment">//旋转到根节点位置</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">count</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> minn=<span class="number">1</span>&lt;&lt;<span class="number">30</span>;</span><br><span class="line">		<span class="keyword">if</span>(cnt&lt;<span class="number">2</span>)&#123;</span><br><span class="line">			ans+=v[root];</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> L=son[root][<span class="number">0</span>];</span><br><span class="line">        <span class="comment">//从左儿子开始,找左子树最右结点,及有序集合中root的前驱</span></span><br><span class="line">		<span class="keyword">while</span>(L!=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!son[L][<span class="number">1</span>]) <span class="keyword">break</span>;</span><br><span class="line">			L=son[L][<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(L!=<span class="number">0</span>) minn=min(minn,v[root]-v[L]);</span><br><span class="line">		L=son[root][<span class="number">1</span>];</span><br><span class="line">        <span class="comment">//找后继,因为root与前驱后继之差的绝对值最小</span></span><br><span class="line">		<span class="keyword">while</span>(L!=<span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(!son[L][<span class="number">0</span>]) <span class="keyword">break</span>;</span><br><span class="line">			L=son[L][<span class="number">0</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(L!=<span class="number">0</span>) minn=min(minn,v[L]-v[root]);</span><br><span class="line">		ans+=minn;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;S;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">		<span class="keyword">if</span>(vis[a]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">//懒人写法,大佬们也可以不用STL,而在find中做文章</span></span><br><span class="line">		vis[a]=<span class="number">1</span>;</span><br><span class="line">		S.insert(a);</span><br><span class="line">		S.count();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//P.S. 我不知道这个代码能不能过,伸手党注意</span></span><br></pre></td></tr></table></figure>
 
       
@@ -457,7 +450,7 @@ luogu说不能提交这道题的题解了,所以就写到这里吧
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。"><span class="toc-number">1.</span> <span class="toc-text">本来想sort水过，看了一眼题解（呵呵呵），大佬们把能写的算法也都写了，但是本着学术精神，我觉得已发题解中Splay的写法太复杂（虽然快是快），所以在下提供一个将左旋右旋结合的写法。</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -649,14 +642,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">普及</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进阶</a>
               </li>
              
@@ -665,7 +650,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,7 +694,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,26 +703,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

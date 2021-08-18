@@ -9,12 +9,12 @@
   <link rel="dns-prefetch" href="https://yitee.top">
   <title>1.A+B Problem | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="## 前言 益题终于上线啦！第一篇文章，请大家多多关注😊 *** 作者：X3B0A1 ***">
+  <meta name="description" content="前言益题终于上线啦！第一篇文章，请大家多多关注😊  作者：X3B0A1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1.A+B Problem">
 <meta property="og:url" content="https://yitee.top/2020/09/02/1.A+B%20Problem/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="## 前言 益题终于上线啦！第一篇文章，请大家多多关注😊 *** 作者：X3B0A1 ***">
+<meta property="og:description" content="前言益题终于上线啦！第一篇文章，请大家多多关注😊  作者：X3B0A1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-02T07:54:03.000Z">
 <meta property="article:modified_time" content="2020-09-08T13:48:59.811Z">
@@ -98,7 +98,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">16.3k</span>
+    总字数 <span class="post-count">17k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -234,7 +234,7 @@ daovoice('update');
         
 
         <div align="center" class="post-count">
-    字数：293字 | 预计阅读时长：1分钟
+    字数：286字 | 预计阅读时长：1分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -246,31 +246,24 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        ## 前言
-益题终于上线啦！第一篇文章，请大家多多关注😊
-***
-作者：X3B0A1
-***
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>益题终于上线啦！第一篇文章，请大家多多关注😊</p>
+<hr>
+<p>作者：X3B0A1</p>
+<hr>
 <a id="more"></a>
-大家好,今天我来讲解一下A+B problem (洛谷P1001)  
-
-题目链接：[洛谷](https://www.luogu.com.cn/problem/P1001)
-
-首先我们来看一下题目描述：
-
-* 输入两个整数 a,b ，输出它们的和 ( ∣a∣,∣b∣≤10 
-^9 )
-
-嗯，这道题是一道我们小学一年级就会做的题，可是我们如何使用c++来实现呢？
-
-我们可以这样想： **先声明两个变量来存储输入的值，再输出这两个变量相加所得的和。**
-
-我们看到题目中说数据范围是 10^9 ，int 型变量的范围是2的31次方，比题目的数据范围要大，因此我们可以使用整形变量来储存。
-
-下面是这道题的代码：
-
+<p>大家好,今天我来讲解一下A+B problem (洛谷P1001)  </p>
+<p>题目链接：<a href="https://www.luogu.com.cn/problem/P1001" target="_blank" rel="noopener">洛谷</a></p>
+<p>首先我们来看一下题目描述：</p>
+<ul>
+<li>输入两个整数 a,b ，输出它们的和 ( ∣a∣,∣b∣≤10<br>^9 )</li>
+</ul>
+<p>嗯，这道题是一道我们小学一年级就会做的题，可是我们如何使用c++来实现呢？</p>
+<p>我们可以这样想： <strong>先声明两个变量来存储输入的值，再输出这两个变量相加所得的和。</strong></p>
+<p>我们看到题目中说数据范围是 10^9 ，int 型变量的范围是2的31次方，比题目的数据范围要大，因此我们可以使用整形变量来储存。</p>
+<p>下面是这道题的代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;      //输入输出流所在的头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;    <span class="comment">//使用标准命名空间</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;             <span class="comment">//主函数入口</span></span><br><span class="line">    <span class="keyword">int</span> a, b;           <span class="comment">//声明两个整形变量a和b</span></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;      <span class="comment">//输入a和b</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; a + b;      <span class="comment">//输出a和b的和</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;           <span class="comment">//不要忘记返回0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-end.  
+<p>end.  </p>
+
       
        
             <!-- 《添加版权声明 -->
@@ -457,7 +450,7 @@ end.
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -649,14 +642,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">普及</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进阶</a>
               </li>
              
@@ -665,7 +650,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,7 +694,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,26 +703,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

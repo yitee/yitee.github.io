@@ -9,13 +9,16 @@
   <link rel="dns-prefetch" href="https://yitee.top">
   <title>9.[HNOI2004]敲砖块 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="## 前言  新人，第一道水题   ---------------  作者：H_D_NULL  本文的其他链接：[我的博客](https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;236099&#x2F;solution-p1437)   ---">
+  <meta name="description" content="前言新人，第一道水题  作者：H_D_NULL 本文的其他链接：我的博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="9.[HNOI2004]敲砖块">
 <meta property="og:url" content="https://yitee.top/2020/11/04/9.%E6%95%B2%E7%A0%96%E5%9D%97/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="## 前言  新人，第一道水题   ---------------  作者：H_D_NULL  本文的其他链接：[我的博客](https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;236099&#x2F;solution-p1437)   ---">
+<meta property="og:description" content="前言新人，第一道水题  作者：H_D_NULL 本文的其他链接：我的博客">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dkic4fp2.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dngjkmd9.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/z9br9zcw.png">
 <meta property="article:published_time" content="2020-11-04T13:53:03.000Z">
 <meta property="article:modified_time" content="2020-11-04T14:05:57.849Z">
 <meta property="article:author" content="益题 Yitee">
@@ -23,6 +26,7 @@
 <meta property="article:tag" content="提高">
 <meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/dkic4fp2.png">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
   
@@ -99,7 +103,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">16.3k</span>
+    总字数 <span class="post-count">17k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -235,7 +239,7 @@ daovoice('update');
         
 
         <div align="center" class="post-count">
-    字数：710字 | 预计阅读时长：3分钟
+    字数：667字 | 预计阅读时长：2分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -247,52 +251,27 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        ## 前言
-
-新人，第一道水题
-
-
----------------
-
-作者：H_D_NULL
-
-本文的其他链接：[我的博客](https://www.luogu.com.cn/blog/236099/solution-p1437)
-
-
----
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>新人，第一道水题</p>
+<hr>
+<p>作者：H_D_NULL</p>
+<p>本文的其他链接：<a href="https://www.luogu.com.cn/blog/236099/solution-p1437" target="_blank" rel="noopener">我的博客</a></p>
+<hr>
 <a id="more"></a>
-题目链接：[P1437 [HNOI2004]敲砖块](https://www.luogu.com.cn/problem/P1437)
-
----------------
-
-### 解题思路
-
-首先，经过观察，我们发现如果一块砖头被敲，那么其上一层与其相邻的两块砖头也必须被敲，这两块砖头又会影响与它们相邻的上层砖头......就会形成以下一个三角形：
-
-![](https://cdn.luogu.com.cn/upload/image_hosting/dkic4fp2.png)
-
-这就相当于DP的一个状态，而且可以预处理，不禁让我们想到了用DP的方法求解。
-
-但是，我们发现敲了多个砖头时，多个三角形可能会产生重叠：
-
-![](https://cdn.luogu.com.cn/upload/image_hosting/dngjkmd9.png)
-
-这样就产生了后效性，不符合动态规划的原则。
-
-难道，只有放弃了吗......
-
-振作起来啊！经过观察，我们可以发现即使三角形有重叠，但它们的轮廓线始终保持某种规律，即可看做这几个三角形轮廓线的重叠：
-
-![](https://cdn.luogu.com.cn/upload/image_hosting/z9br9zcw.png)
-
-所以我们可以以每个点为状态，最终构造出一条合法的轮廓线，最终达到DP的目的。
-
-对于一个点，它的状态只能从他的左边，左下和左上转移而来，具体的状态转移方程会在代码中呈现。
-
-值得注意的是，这条轮廓线可能不连续，所以要利用状态0来保存之前的合法轮廓线（具体见代码）。
-
-下面上代码：
-
+<p>题目链接：<a href="https://www.luogu.com.cn/problem/P1437" target="_blank" rel="noopener">P1437 [HNOI2004]敲砖块</a></p>
+<hr>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>首先，经过观察，我们发现如果一块砖头被敲，那么其上一层与其相邻的两块砖头也必须被敲，这两块砖头又会影响与它们相邻的上层砖头……就会形成以下一个三角形：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/dkic4fp2.png" alt></p>
+<p>这就相当于DP的一个状态，而且可以预处理，不禁让我们想到了用DP的方法求解。</p>
+<p>但是，我们发现敲了多个砖头时，多个三角形可能会产生重叠：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/dngjkmd9.png" alt></p>
+<p>这样就产生了后效性，不符合动态规划的原则。</p>
+<p>难道，只有放弃了吗……</p>
+<p>振作起来啊！经过观察，我们可以发现即使三角形有重叠，但它们的轮廓线始终保持某种规律，即可看做这几个三角形轮廓线的重叠：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/z9br9zcw.png" alt></p>
+<p>所以我们可以以每个点为状态，最终构造出一条合法的轮廓线，最终达到DP的目的。</p>
+<p>对于一个点，它的状态只能从他的左边，左下和左上转移而来，具体的状态转移方程会在代码中呈现。</p>
+<p>值得注意的是，这条轮廓线可能不连续，所以要利用状态0来保存之前的合法轮廓线（具体见代码）。</p>
+<p>下面上代码：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"><span class="keyword">int</span> v[<span class="number">55</span>][<span class="number">55</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">55</span>][<span class="number">55</span>][<span class="number">1505</span>];</span><br><span class="line"><span class="keyword">int</span> ans;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[<span class="number">55</span>][<span class="number">55</span>][<span class="number">1505</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n-i+<span class="number">1</span>;j++)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;v[i][j];</span><br><span class="line">			v[i][j]+=v[i<span class="number">-1</span>][j];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		vis[i][<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>; <span class="comment">//vis数组记录是否合法（也可不用？但用了肯定没错）</span></span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=n-i+<span class="number">1</span>;j++)&#123; <span class="comment">//用0状态来处理不连续的轮廓线</span></span><br><span class="line">			<span class="keyword">for</span>(re <span class="keyword">int</span> p=<span class="number">1</span>;p&lt;=m;p++)&#123;</span><br><span class="line">				<span class="keyword">if</span>(p-j&gt;<span class="number">0</span>)&#123;</span><br><span class="line">					<span class="keyword">if</span>(vis[i<span class="number">-1</span>][j+<span class="number">1</span>][p-j])&#123;</span><br><span class="line">						vis[i][j][p]=<span class="number">1</span>;</span><br><span class="line">						f[i][j][p]=max(f[i][j][p],f[i<span class="number">-1</span>][j+<span class="number">1</span>][p-j]+v[j][i]);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="keyword">if</span>(vis[i<span class="number">-1</span>][j][p-j])&#123;</span><br><span class="line">						vis[i][j][p]=<span class="number">1</span>;</span><br><span class="line">						f[i][j][p]=max(f[i][j][p],f[i<span class="number">-1</span>][j][p-j]+v[j][i]);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(vis[i][j<span class="number">-1</span>][p<span class="number">-1</span>])&#123;</span><br><span class="line">					vis[i][j][p]=<span class="number">1</span>;</span><br><span class="line">					f[i][j][p]=max(f[i][j][p],f[i][j<span class="number">-1</span>][p<span class="number">-1</span>]+v[j][i]-v[j<span class="number">-1</span>][i]);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) ans=max(f[i][<span class="number">1</span>][m],ans); <span class="comment">//只有最终到达1层的才是合法的结束状态</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -485,7 +464,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#解题思路"><span class="toc-number">1.1.</span> <span class="toc-text">解题思路</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -677,14 +656,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">普及</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进阶</a>
               </li>
              
@@ -693,7 +664,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,7 +708,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -718,26 +717,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

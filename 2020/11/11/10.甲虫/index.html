@@ -9,12 +9,12 @@
   <link rel="dns-prefetch" href="https://yitee.top">
   <title>10.[BalticOI 2009 Day1]甲虫 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="## 前言 祝大家双11快乐！  作者：H_D_NULL  本文的其他链接：[我的博客](https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;236099&#x2F;solution-p4870)  ---">
+  <meta name="description" content="前言祝大家双11快乐！ 作者：H_D_NULL 本文的其他链接：我的博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="10.[BalticOI 2009 Day1]甲虫">
 <meta property="og:url" content="https://yitee.top/2020/11/11/10.%E7%94%B2%E8%99%AB/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="## 前言 祝大家双11快乐！  作者：H_D_NULL  本文的其他链接：[我的博客](https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;blog&#x2F;236099&#x2F;solution-p4870)  ---">
+<meta property="og:description" content="前言祝大家双11快乐！ 作者：H_D_NULL 本文的其他链接：我的博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-11T13:53:03.000Z">
 <meta property="article:modified_time" content="2020-11-13T12:32:14.976Z">
@@ -99,7 +99,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">16.3k</span>
+    总字数 <span class="post-count">17k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -235,7 +235,7 @@ daovoice('update');
         
 
         <div align="center" class="post-count">
-    字数：1.2k字 | 预计阅读时长：5分钟
+    字数：1.2k字 | 预计阅读时长：4分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -247,68 +247,30 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        ## 前言
-祝大家双11快乐！
-
-作者：H_D_NULL
-
-本文的其他链接：[我的博客](https://www.luogu.com.cn/blog/236099/solution-p4870)
-
----
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>祝大家双11快乐！</p>
+<p>作者：H_D_NULL</p>
+<p>本文的其他链接：<a href="https://www.luogu.com.cn/blog/236099/solution-p4870" target="_blank" rel="noopener">我的博客</a></p>
+<hr>
 <a id="more"></a>
-题目链接 ：[P4870 [BalticOI 2009 Day1]甲虫](https://www.luogu.com.cn/problem/P4870)
-
----
-
-
-#### 本题解重点讲解整体思路，细节见代码
-
-------------
-
-
-### 确定做法
-
-看到“数轴”和“最大价值”，自然而然地想到了区间DP，自己写了几个式子推了几种情况，发现不掉头或只掉一次头不一定最优，故排除贪心，大概确定做法为区间DP；观察数据范围，发现 $n$ 是 $O(n^3)$ 的范围，便想到可能要额外枚举某个条件后再跑一遍区间DP（~~伏笔~~）。
-
-
-
-------------
-
-
-### 确定状态
-
-先思考用 $f$ 数组维护 $l$ 到 $r$ 区间可得的最大价值。本题中，每个水滴的价值（水分）随时都在变化，不同时间走到同一个点也可能会产生不同的价值，传统的区间DP状态 $f[l][r]$ 无法同时维护时间和直接价值，因为时间的上界过大且无法离散化，所以也无法增加一维状态。
-
-~~但是~~经过观察我们发现，一个区间的价值等于区间初始价值（水滴数乘以 $m$）减去流失的价值，~~很显然~~。但是重要的是对于每一个区间，剩下水滴的数目可以确定，而水分流失的总速度也就确定，所以可以用 $f[l][r]$ 维护区间内已流失水分的最小值。
-
-因为甲虫爬完区间后停在区间的哪一边（显然不可能是中间）不仅对本次的价值有影响，也影响下一次状态的转移，所以用 $f[l][r]$ 和 $f[r][l]$ 分别维护即可。
-
-
-------------
-
-
-### 处理答案
-
-维护了流失水分的最小值，输出答案时就要用总的水滴值减去这个最小值，产生了如下问题：
-
-- 水滴的水分不会减为负值，因为状态中没有一维表示时间，无法判断这个区间的答案是否包含了水滴为负值的情况；
-
-所以，我们考虑枚举这个“时间”，由于时间过大，我们用可以喝到的水滴数来限制时间，及**枚举喝到的水滴数**（~~呼应~~），对于每一个水滴数，单独跑一遍区间DP，答案为这些价值的最大值。
-
-
-------------
-
-### ~~感性~~证明
-
-从定义出发，甲虫喝到最多水的情况，必是已经喝过了所有的水滴或爬到下一个水滴时所有水滴已经蒸发完了。
-
-如果枚举的水滴数大于了实际可以喝到的水滴数，则可以理解为甲虫在实际的最优情况下，又喝了一个价值为负的水滴，最后的价值必定小于最优价值，所以枚举一定能保证得到的最优价值是符合实际的。
-
-
-------------
-
-*Talk is cheap, show me the code*
-
+<p>题目链接 ：<a href="https://www.luogu.com.cn/problem/P4870" target="_blank" rel="noopener">P4870 [BalticOI 2009 Day1]甲虫</a></p>
+<hr>
+<h4 id="本题解重点讲解整体思路，细节见代码"><a href="#本题解重点讲解整体思路，细节见代码" class="headerlink" title="本题解重点讲解整体思路，细节见代码"></a>本题解重点讲解整体思路，细节见代码</h4><hr>
+<h3 id="确定做法"><a href="#确定做法" class="headerlink" title="确定做法"></a>确定做法</h3><p>看到“数轴”和“最大价值”，自然而然地想到了区间DP，自己写了几个式子推了几种情况，发现不掉头或只掉一次头不一定最优，故排除贪心，大概确定做法为区间DP；观察数据范围，发现 $n$ 是 $O(n^3)$ 的范围，便想到可能要额外枚举某个条件后再跑一遍区间DP（<del>伏笔</del>）。</p>
+<hr>
+<h3 id="确定状态"><a href="#确定状态" class="headerlink" title="确定状态"></a>确定状态</h3><p>先思考用 $f$ 数组维护 $l$ 到 $r$ 区间可得的最大价值。本题中，每个水滴的价值（水分）随时都在变化，不同时间走到同一个点也可能会产生不同的价值，传统的区间DP状态 $f[l][r]$ 无法同时维护时间和直接价值，因为时间的上界过大且无法离散化，所以也无法增加一维状态。</p>
+<p><del>但是</del>经过观察我们发现，一个区间的价值等于区间初始价值（水滴数乘以 $m$）减去流失的价值，<del>很显然</del>。但是重要的是对于每一个区间，剩下水滴的数目可以确定，而水分流失的总速度也就确定，所以可以用 $f[l][r]$ 维护区间内已流失水分的最小值。</p>
+<p>因为甲虫爬完区间后停在区间的哪一边（显然不可能是中间）不仅对本次的价值有影响，也影响下一次状态的转移，所以用 $f[l][r]$ 和 $f[r][l]$ 分别维护即可。</p>
+<hr>
+<h3 id="处理答案"><a href="#处理答案" class="headerlink" title="处理答案"></a>处理答案</h3><p>维护了流失水分的最小值，输出答案时就要用总的水滴值减去这个最小值，产生了如下问题：</p>
+<ul>
+<li>水滴的水分不会减为负值，因为状态中没有一维表示时间，无法判断这个区间的答案是否包含了水滴为负值的情况；</li>
+</ul>
+<p>所以，我们考虑枚举这个“时间”，由于时间过大，我们用可以喝到的水滴数来限制时间，及<strong>枚举喝到的水滴数</strong>（<del>呼应</del>），对于每一个水滴数，单独跑一遍区间DP，答案为这些价值的最大值。</p>
+<hr>
+<h3 id="感性证明"><a href="#感性证明" class="headerlink" title="感性证明"></a><del>感性</del>证明</h3><p>从定义出发，甲虫喝到最多水的情况，必是已经喝过了所有的水滴或爬到下一个水滴时所有水滴已经蒸发完了。</p>
+<p>如果枚举的水滴数大于了实际可以喝到的水滴数，则可以理解为甲虫在实际的最优情况下，又喝了一个价值为负的水滴，最后的价值必定小于最优价值，所以枚举一定能保证得到的最优价值是符合实际的。</p>
+<hr>
+<p><em>Talk is cheap, show me the code</em></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> re register</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	re <span class="keyword">int</span> ret=<span class="number">0</span>,f=<span class="number">1</span>;</span><br><span class="line">	re <span class="keyword">char</span> c=getchar();</span><br><span class="line">	<span class="keyword">while</span>(c&lt;<span class="string">'0'</span>||c&gt;<span class="string">'9'</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span>(c==<span class="string">'-'</span>) f=<span class="number">-1</span>;</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">while</span>(c&gt;=<span class="string">'0'</span>&amp;&amp;c&lt;=<span class="string">'9'</span>)&#123;</span><br><span class="line">		ret=(ret&lt;&lt;<span class="number">1</span>)+(ret&lt;&lt;<span class="number">3</span>)+(c^<span class="number">48</span>);</span><br><span class="line">		c=getchar();</span><br><span class="line">	&#125; <span class="keyword">return</span> ret*f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m,st,ans;</span><br><span class="line"><span class="keyword">int</span> loc[<span class="number">305</span>];</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">305</span>][<span class="number">305</span>];</span><br><span class="line"><span class="comment">//用f[i][j]和f[j][i]来代表停在哪一边 </span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> IF; <span class="comment">//判断是否有水滴在起始位置 </span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	n=read(); m=read();</span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		loc[i]=read();</span><br><span class="line">		<span class="keyword">if</span>(!loc[i]) IF=<span class="number">1</span>;</span><br><span class="line">	&#125; <span class="keyword">if</span>(!IF) loc[++n]=<span class="number">0</span>;</span><br><span class="line">	<span class="comment">//如没有水滴在起始位置，先添加一个，最后减去这个水滴的价值即可 </span></span><br><span class="line">	sort(loc+<span class="number">1</span>,loc+<span class="number">1</span>+n);</span><br><span class="line">	st=lower_bound(loc+<span class="number">1</span>,loc+<span class="number">1</span>+n,<span class="number">0</span>)-loc;</span><br><span class="line">	<span class="comment">//0的位置 </span></span><br><span class="line">	<span class="keyword">for</span>(re <span class="keyword">int</span> maxl=<span class="number">1</span>;maxl&lt;=n;maxl++)&#123;</span><br><span class="line">		<span class="built_in">memset</span>(f,<span class="number">63</span>,<span class="keyword">sizeof</span>(f)); f[st][st]=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> len=<span class="number">2</span>;len&lt;=maxl;len++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(re <span class="keyword">int</span> i=max(<span class="number">1</span>,st-len+<span class="number">1</span>),j;i&lt;=st;i++)&#123;</span><br><span class="line">				j=i+len<span class="number">-1</span>; <span class="keyword">if</span>(j&gt;n) <span class="keyword">break</span>;</span><br><span class="line">				<span class="keyword">if</span>(i&lt;st)&#123;</span><br><span class="line">					f[i][j]=f[j][i+<span class="number">1</span>]+(loc[i+<span class="number">1</span>]-loc[i])*(maxl-j+i)+(loc[j]-loc[i])*(maxl-j+i<span class="number">-1</span>);</span><br><span class="line">					f[j][i]=f[j][i+<span class="number">1</span>]+(loc[i+<span class="number">1</span>]-loc[i])*(maxl-j+i);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">if</span>(j&gt;st)&#123;</span><br><span class="line">					f[i][j]=min(f[i][j],f[i][j<span class="number">-1</span>]+(loc[j]-loc[j<span class="number">-1</span>])*(maxl-j+i));</span><br><span class="line">					f[j][i]=min(f[j][i],f[i][j<span class="number">-1</span>]+(loc[j]-loc[j<span class="number">-1</span>])*(maxl-j+i)+(loc[j]-loc[i])*(maxl-j+i<span class="number">-1</span>));</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">//状态转移要考虑从两边转移 </span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="comment">//经典区间DP，不必多说 </span></span><br><span class="line">		<span class="keyword">for</span>(re <span class="keyword">int</span> i=max(<span class="number">1</span>,st-maxl+<span class="number">1</span>),j,now;i&lt;=st;i++)&#123;</span><br><span class="line">			j=i+maxl<span class="number">-1</span>; <span class="keyword">if</span>(j&gt;n) <span class="keyword">break</span>;</span><br><span class="line">			now=maxl*m-min(f[i][j],f[j][i])-(IF?<span class="number">0</span>:m);</span><br><span class="line">			ans=max(ans,now);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -502,7 +464,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#本题解重点讲解整体思路，细节见代码"><span class="toc-number">1.0.1.</span> <span class="toc-text">本题解重点讲解整体思路，细节见代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确定做法"><span class="toc-number">1.1.</span> <span class="toc-text">确定做法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确定状态"><span class="toc-number">1.2.</span> <span class="toc-text">确定状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#处理答案"><span class="toc-number">1.3.</span> <span class="toc-text">处理答案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#感性证明"><span class="toc-number">1.4.</span> <span class="toc-text">感性证明</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -694,14 +656,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">普及</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进阶</a>
               </li>
              
@@ -710,7 +664,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -726,7 +708,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,26 +717,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -9,20 +9,20 @@
   <link rel="dns-prefetch" href="https://yitee.top">
   <title>16.数字生成游戏 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者：冰糖鸽子  ---">
+  <meta name="description" content="作者：冰糖鸽子">
 <meta property="og:type" content="article">
 <meta property="og:title" content="16.数字生成游戏">
 <meta property="og:url" content="https://yitee.top/2020/12/10/16.%E6%95%B0%E5%AD%97%E7%94%9F%E6%88%90%E6%B8%B8%E6%88%8F/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="作者：冰糖鸽子  ---">
+<meta property="og:description" content="作者：冰糖鸽子">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-10T12:30:00.000Z">
 <meta property="article:modified_time" content="2020-12-13T09:46:19.563Z">
 <meta property="article:author" content="益题 Yitee">
 <meta property="article:tag" content="进阶">
+<meta property="article:tag" content="字符串">
 <meta property="article:tag" content="搜索">
 <meta property="article:tag" content="宽度优先搜索">
-<meta property="article:tag" content="字符串">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -100,7 +100,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">16.3k</span>
+    总字数 <span class="post-count">17k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -248,37 +248,25 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-作者：冰糖鸽子
-
----
+        <p>作者：冰糖鸽子</p>
+<hr>
 <a id="more"></a>
-一道不错的字符串+宽搜练手题
-
----
-
-### 思路
-
-首先显而易见的是，关于一个数字能到达的数字的最大长度，咱们分别看三个操作：
-
-- 操作1，位数不变
-- 操作2，位数减少
-- 操作3，位数加一，但不会超过初始数字的长度
-
-所以可以得出结论：不管怎么变化，数字的长度都不会超过原数字的长度，也就是**最大只能搜索到 99999** , 所以毫不犹豫用宽搜
-
-而在宽搜中，第一次被搜到肯定是最佳答案，所以可以加上一个记忆化，复杂度降到 $\operatorname{O(nm )}$ , 其中 $m$ 是**while中运行一次需要的时间**,在我的程序中，$m$ 约是 $\operatorname{l^3}$，$l$ 是原数的位数
-
-最多约需要 $\operatorname{O(12500000)}$ 的时间，完全可以在 1s 内跑出来
-
-最后提一句，因为这三个操作需要插入，删除，交换什么的，所以我用了 `string` 来存储数字
-
-----
-
-### 代码
-
-- 细节说明：在开始把原数的答案设成 $1$ 而不是 $0$ , 意味着所有**可通过原数转换到的数**的答案都大一，所以输出时要减一。而这样处理完后，**不可通过原数转换到的数**的答案在减一后就是 $-1$ , 正好符合题目要求
-
+<p>一道不错的字符串+宽搜练手题</p>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先显而易见的是，关于一个数字能到达的数字的最大长度，咱们分别看三个操作：</p>
+<ul>
+<li>操作1，位数不变</li>
+<li>操作2，位数减少</li>
+<li>操作3，位数加一，但不会超过初始数字的长度</li>
+</ul>
+<p>所以可以得出结论：不管怎么变化，数字的长度都不会超过原数字的长度，也就是<strong>最大只能搜索到 99999</strong> , 所以毫不犹豫用宽搜</p>
+<p>而在宽搜中，第一次被搜到肯定是最佳答案，所以可以加上一个记忆化，复杂度降到 $\operatorname{O(nm )}$ , 其中 $m$ 是<strong>while中运行一次需要的时间</strong>,在我的程序中，$m$ 约是 $\operatorname{l^3}$，$l$ 是原数的位数</p>
+<p>最多约需要 $\operatorname{O(12500000)}$ 的时间，完全可以在 1s 内跑出来</p>
+<p>最后提一句，因为这三个操作需要插入，删除，交换什么的，所以我用了 <code>string</code> 来存储数字</p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
+<li>细节说明：在开始把原数的答案设成 $1$ 而不是 $0$ , 意味着所有<strong>可通过原数转换到的数</strong>的答案都大一，所以输出时要减一。而这样处理完后，<strong>不可通过原数转换到的数</strong>的答案在减一后就是 $-1$ , 正好符合题目要求</li>
+</ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// Problem: P1132 数字生成游戏</span></span><br><span class="line"><span class="comment">// Contest: Luogu</span></span><br><span class="line"><span class="comment">// URL: https://www.luogu.com.cn/problem/P1132</span></span><br><span class="line"><span class="comment">// Memory Limit: 125 MB</span></span><br><span class="line"><span class="comment">// Time Limit: 1000 ms</span></span><br><span class="line"><span class="comment">// Powered by CP Editor (https://github.com/cpeditor/cpeditor)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> m,l;</span><br><span class="line"><span class="built_in">string</span> n;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="built_in">string</span>,<span class="keyword">int</span>&gt;ans;</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="built_in">string</span>&gt;q;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">done</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> u,v,f;</span><br><span class="line">	<span class="keyword">int</span> fl;</span><br><span class="line">	q.push(n);</span><br><span class="line">	<span class="keyword">while</span>(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		u=q.front();q.pop();fl=u.length();</span><br><span class="line">		<span class="comment">//cout&lt;&lt;u&lt;&lt;endl;</span></span><br><span class="line">		<span class="comment">//Step 1</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fl;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;fl;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				v=u;</span><br><span class="line">				swap(v[i],v[j]);</span><br><span class="line">				<span class="keyword">if</span>(!ans[v])</span><br><span class="line">				&#123;</span><br><span class="line">					ans[v]=ans[u]+<span class="number">1</span>;</span><br><span class="line">					q.push(v);</span><br><span class="line">				&#125;</span><br><span class="line">				swap(v[i],v[j]);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//Step 2</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fl;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			v=u.substr(<span class="number">0</span>,i)+u.substr(i+<span class="number">1</span>);</span><br><span class="line">			<span class="keyword">if</span>(!ans[v])</span><br><span class="line">			&#123;</span><br><span class="line">				ans[v]=ans[u]+<span class="number">1</span>;</span><br><span class="line">				q.push(v);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// Step 3*</span></span><br><span class="line">		<span class="keyword">if</span>(u.length()&lt;l)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;fl<span class="number">-1</span>;i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">char</span> j=u[i]+<span class="number">1</span>;j&lt;u[i+<span class="number">1</span>];j++)</span><br><span class="line">				&#123;</span><br><span class="line">					v=u;</span><br><span class="line">					f=<span class="string">""</span>;</span><br><span class="line">					f+=j;</span><br><span class="line">					v.insert(i+<span class="number">1</span>,f);</span><br><span class="line">					<span class="keyword">if</span>(!ans[v])</span><br><span class="line">					&#123;</span><br><span class="line">						ans[v]=ans[u]+<span class="number">1</span>;</span><br><span class="line">						q.push(v);</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;l=n.length();</span><br><span class="line">	ans[n]=<span class="number">1</span>;</span><br><span class="line">	done();</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;ans[n]<span class="number">-1</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
        
@@ -358,15 +346,15 @@ daovoice('update');
         		</li>
       		 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">搜索</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">宽度优先搜索</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">字符串</a>
         		</li>
       		
 		</ul>
@@ -474,7 +462,7 @@ daovoice('update');
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-number">1.</span> <span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">2.</span> <span class="toc-text">代码</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -666,14 +654,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">普及</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进阶</a>
               </li>
              
@@ -682,7 +662,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,7 +706,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,26 +715,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">

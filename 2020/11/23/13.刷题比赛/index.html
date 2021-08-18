@@ -9,12 +9,12 @@
   <link rel="dns-prefetch" href="https://yitee.top">
   <title>13.P1707 刷题比赛 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="作者：冰糖鸽子  ---">
+  <meta name="description" content="作者：冰糖鸽子">
 <meta property="og:type" content="article">
 <meta property="og:title" content="13.P1707 刷题比赛">
 <meta property="og:url" content="https://yitee.top/2020/11/23/13.%E5%88%B7%E9%A2%98%E6%AF%94%E8%B5%9B/index.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="作者：冰糖鸽子  ---">
+<meta property="og:description" content="作者：冰糖鸽子">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-23T12:04:00.000Z">
 <meta property="article:modified_time" content="2020-11-24T13:27:57.374Z">
@@ -100,7 +100,7 @@ daovoice('update');
 </nav>
 
 <nav>
-    总字数 <span class="post-count">16.3k</span>
+    总字数 <span class="post-count">17k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -236,7 +236,7 @@ daovoice('update');
         
 
         <div align="center" class="post-count">
-    字数：876字 | 预计阅读时长：4分钟
+    字数：825字 | 预计阅读时长：4分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -248,81 +248,250 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        作者：冰糖鸽子
-
----
+        <p>作者：冰糖鸽子</p>
+<hr>
 <a id="more"></a>
-[题目来源-luogu](https://www.luogu.com.cn/problem/P1707)
-
-~~我还没怎么见过直接说要用什么算法的题呢~~
-
-矩阵乘法，矩阵快速幂什么的不再多说，上OI-wiki
-
-[Link](https://oi-wiki.org/math/matrix/)
-
-放几道练习题(循序渐进)：
-
-- [P1962](luogu.com.cn/problem/P1962)
-
-- [P1939 模板](luogu.com.cn/problem/P1939)
-
-- [P1349](luogu.com.cn/problem/P1349)
-
-- [P1349](luogu.com.cn/problem/P1349)
-
-- [P5343](luogu.com.cn/problem/P5343)
-
-- [P2044](luogu.com.cn/problem/P2044)
-
-----
-
-按照惯例，推转移矩阵。
-
-三个式子前面的 $pa_{k+1}$ 这种都比较容易分解，因为式子已经在题目里了，其余的项难分解的基本如下两种：
-
-- $(k+1)^2 = (k+1) \times (k+1) = k^2 + 2k + 1$
-
-- $z^{k+1} = z^k \times z$
-
-然后就可以推出来一个维护 $11$ 个值的矩阵(空白处为 $0$ )：
-
-|  | $A_i$ | $B_i$ | $C_i$ | $A_{i+1}$ | $B_{i+1}$ | $C_{i+1}$ | $i$ | $i^2$ | $1$ |  $w^k$ | $z^k$ |  |
-| -----------: | -----------: | -----------: | -----------: | -----------: | -----------: | -----------: | -----------: | -----------: | -----------: | -----------: | -----------: | -----------: |
-| $A_{i+1}$ |  |  |  | 1 |  |  |  |  |  |  |  |  |
-| $B_{i+1}$ |  |  |  |  | 1 |  |  |  |  |  |  |  |
-| $C_{i+1}$ |  |  |  |  |  | 1 |  |  |  |  |  |  |
-| $A_{i+2}$ | q |  |  | p | 1 | 1 | t | r | 1 |  |  |  |
-| $B_{i+2}$ |  | v |  | 1 | u | 1 |  |  |  | 1 |  |  |
-| $C_{i+2}$ |  |  | y | 1 | 1 | x | 1 |  | 2 |  | 1 |  |
-| $i+1$ |  |  |  |  |  |  | 1 |  | 1 |  |  |  |
-| ${i+1}^2$ |  |  |  |  |  |  | 2 | 1 | 1 |  |  |  |
-| $1$ |  |  |  |  |  |  |  |  | 1  |  |  |  |
-| $w^{i+1}$ |  |  |  |  |  |  |  |  |  | w |  |  |
-| $z^{i+1}$ |  |  |  |  |  |  |  |  |  |  | z |  |
-|  |  |  |  |  |  |  |  |  |  |  |  |  |
-
-
-然后将 lot 矩阵设为以上矩阵：
-
+<p><a href="https://www.luogu.com.cn/problem/P1707" target="_blank" rel="noopener">题目来源-luogu</a></p>
+<p><del>我还没怎么见过直接说要用什么算法的题呢</del></p>
+<p>矩阵乘法，矩阵快速幂什么的不再多说，上OI-wiki</p>
+<p><a href="https://oi-wiki.org/math/matrix/" target="_blank" rel="noopener">Link</a></p>
+<p>放几道练习题(循序渐进)：</p>
+<ul>
+<li><p><a href="luogu.com.cn/problem/P1962">P1962</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P1939">P1939 模板</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P1349">P1349</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P1349">P1349</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P5343">P5343</a></p>
+</li>
+<li><p><a href="luogu.com.cn/problem/P2044">P2044</a></p>
+</li>
+</ul>
+<hr>
+<p>按照惯例，推转移矩阵。</p>
+<p>三个式子前面的 $pa_{k+1}$ 这种都比较容易分解，因为式子已经在题目里了，其余的项难分解的基本如下两种：</p>
+<ul>
+<li><p>$(k+1)^2 = (k+1) \times (k+1) = k^2 + 2k + 1$</p>
+</li>
+<li><p>$z^{k+1} = z^k \times z$</p>
+</li>
+</ul>
+<p>然后就可以推出来一个维护 $11$ 个值的矩阵(空白处为 $0$ )：</p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">$A_i$</th>
+<th align="right">$B_i$</th>
+<th align="right">$C_i$</th>
+<th align="right">$A_{i+1}$</th>
+<th align="right">$B_{i+1}$</th>
+<th align="right">$C_{i+1}$</th>
+<th align="right">$i$</th>
+<th align="right">$i^2$</th>
+<th align="right">$1$</th>
+<th align="right">$w^k$</th>
+<th align="right">$z^k$</th>
+<th align="right"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">$A_{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$B_{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$C_{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$A_{i+2}$</td>
+<td align="right">q</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">p</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">t</td>
+<td align="right">r</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$B_{i+2}$</td>
+<td align="right"></td>
+<td align="right">v</td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right">u</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$C_{i+2}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">y</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">x</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right">2</td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$i+1$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">${i+1}^2$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">2</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$1$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">1</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$w^{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">w</td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right">$z^{i+1}$</td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right">z</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<p>然后将 lot 矩阵设为以上矩阵：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lot.m[0][3]&#x3D;lot.m[1][4]&#x3D;lot.m[2][5]&#x3D;lot.m[3][4]&#x3D;lot.m[3][5]&#x3D;lot.m[3][8]&#x3D;lot.m[4][3]&#x3D;lot.m[4][5]&#x3D;lot.m[4][9]&#x3D;lot.m[5][3]&#x3D;lot.m[5][4]&#x3D;lot.m[5][6]&#x3D;lot.m[5][10]&#x3D;lot.m[6][6]&#x3D;lot.m[6][8]&#x3D;lot.m[7][7]&#x3D;lot.m[7][8]&#x3D;lot.m[8][8]&#x3D;1;&#x2F;&#x2F;所有为1的格</span><br><span class="line">lot.m[5][8]&#x3D;lot.m[7][6]&#x3D;2;&#x2F;&#x2F;所有为2的格</span><br><span class="line">lot.m[3][0]&#x3D;q;lot.m[3][3]&#x3D;p;lot.m[3][6]&#x3D;t;lot.m[3][7]&#x3D;r;&#x2F;&#x2F;与求A数列相关的格</span><br><span class="line">lot.m[4][1]&#x3D;v;lot.m[4][4]&#x3D;u;lot.m[9][9]&#x3D;w;&#x2F;&#x2F;与求B数列相关的格</span><br><span class="line">lot.m[5][2]&#x3D;y;lot.m[5][5]&#x3D;x;lot.m[10][10]&#x3D;z;&#x2F;&#x2F;与求C数列相关的格</span><br></pre></td></tr></table></figure>
 
-之后是普通的矩阵快速幂，注意进行矩阵乘法需要使用龟速乘防爆
-
-[龟速乘](https://www.cnblogs.com/wifimonster/p/10206866.html)
-
+<p>之后是普通的矩阵快速幂，注意进行矩阵乘法需要使用龟速乘防爆</p>
+<p><a href="https://www.cnblogs.com/wifimonster/p/10206866.html" target="_blank" rel="noopener">龟速乘</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">int mut_q(int a,int b)</span><br><span class="line">&#123;</span><br><span class="line">	int ans&#x3D;0;</span><br><span class="line">	while(b!&#x3D;0)</span><br><span class="line">	&#123;</span><br><span class="line">		if(b%2&#x3D;&#x3D;1)&#123;ans&#x3D;(ans+a)%pp;&#125;</span><br><span class="line">		a&#x3D;(a*2)%pp;</span><br><span class="line">		b&#x2F;&#x3D;2;</span><br><span class="line">	&#125;</span><br><span class="line">	return ans;</span><br><span class="line">&#125;</span><br><span class="line">node do_mut(node a,node b)</span><br><span class="line">&#123;</span><br><span class="line">	node ans;</span><br><span class="line">	memset(ans.m,0,sizeof(ans.m));</span><br><span class="line">	for(int i&#x3D;0;i&lt;11;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(int j&#x3D;0;j&lt;11;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			for(int k&#x3D;0;k&lt;11;k++)</span><br><span class="line">			&#123;</span><br><span class="line">				ans.m[i][j]+&#x3D;mut_q((a.m[i][k]%pp),(b.m[k][j]%pp))%pp;ans.m[i][j]%&#x3D;pp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return ans;</span><br><span class="line">&#125;</span><br><span class="line">void done(int x)</span><br><span class="line">&#123;</span><br><span class="line">	while(x)</span><br><span class="line">	&#123;</span><br><span class="line">		if(x&amp;1)</span><br><span class="line">		&#123;</span><br><span class="line">			one&#x3D;do_mut(one,lot);</span><br><span class="line">		&#125;</span><br><span class="line">		lot&#x3D;do_mut(lot,lot);</span><br><span class="line">		x&gt;&gt;&#x3D;1;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-最后一个问题：如何求答案
-
-~~其实这个明明很明显的嘛，不多说了~~
-
-第四行，第五行，第六行分别对应 `nodgd`,`Ciocio`,`Nicole` ,把这三行分别乘上基础数列(如下)，再膜一下，就是每个人的答案了
-
-$$ 1 ,1,1,3,3,3,1,1,1,w,z $$
-
-(对应上文表格的11项)
-
-本部分代码：
+<p>最后一个问题：如何求答案</p>
+<p><del>其实这个明明很明显的嘛，不多说了</del></p>
+<p>第四行，第五行，第六行分别对应 <code>nodgd</code>,<code>Ciocio</code>,<code>Nicole</code> ,把这三行分别乘上基础数列(如下)，再膜一下，就是每个人的答案了</p>
+<p>$$ 1 ,1,1,3,3,3,1,1,1,w,z $$</p>
+<p>(对应上文表格的11项)</p>
+<p>本部分代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int sumA&#x3D;0,sumB&#x3D;0,sumC&#x3D;0;</span><br><span class="line">for(int i&#x3D;0;i&lt;11;i++)</span><br><span class="line">&#123;</span><br><span class="line">	sumA+&#x3D;one.m[3][i]*doit[i];sumA%&#x3D;pp;</span><br><span class="line">	sumB+&#x3D;one.m[4][i]*doit[i];sumB%&#x3D;pp;</span><br><span class="line">	sumC+&#x3D;one.m[5][i]*doit[i];sumC%&#x3D;pp;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;&quot;nodgd &quot;&lt;&lt;sumA&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&quot;Ciocio &quot;&lt;&lt;sumB&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&quot;Nicole &quot;&lt;&lt;sumC&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
       
        
@@ -710,14 +879,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">普及</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">进阶</a>
               </li>
              
@@ -726,7 +887,35 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">普及</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">模拟</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -742,7 +931,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">贪心</a>
+                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -751,26 +940,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">宽度优先搜索</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">SPFA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SBT</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Splay</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">概率论</a>
               </li>
              
               <li class="article-tag-list-item">
