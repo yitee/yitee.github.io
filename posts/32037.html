@@ -7,17 +7,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.top">
-  <title>Codeforces Round #807 (Div. 2)翻译及题解 | 益题 Yitee</title>
+  <title>Codeforces Round #808 (Div. 2)翻译 | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言今天给大家带来7.15的Codeforces Round #807 (Div. 2)翻译及题解感谢大家支持🤞    作者：xyzlh">
+  <meta name="description" content="前言今天给大家带来7.16的Codeforces Round #808 (Div. 2)翻译感谢大家支持🤞益题交流群：1019201086 (QQ)  作者：xyzlh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codeforces Round #807 (Div. 2)翻译及题解">
-<meta property="og:url" content="https://yitee.top/posts/39924.html">
+<meta property="og:title" content="Codeforces Round #808 (Div. 2)翻译">
+<meta property="og:url" content="https://yitee.top/posts/32037.html">
 <meta property="og:site_name" content="益题 Yitee">
-<meta property="og:description" content="前言今天给大家带来7.15的Codeforces Round #807 (Div. 2)翻译及题解感谢大家支持🤞    作者：xyzlh">
+<meta property="og:description" content="前言今天给大家带来7.16的Codeforces Round #808 (Div. 2)翻译感谢大家支持🤞益题交流群：1019201086 (QQ)  作者：xyzlh">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-16T08:08:03.000Z">
-<meta property="article:modified_time" content="2022-07-16T14:26:16.544Z">
+<meta property="article:published_time" content="2022-07-17T08:10:07.000Z">
+<meta property="article:modified_time" content="2022-07-17T08:46:24.811Z">
 <meta property="article:author" content="益题 Yitee">
 <meta property="article:tag" content="Codeforces">
 <meta property="article:tag" content="翻译">
@@ -94,11 +94,11 @@ daovoice('update');
 			</ul>
 		</nav>
 <nav>
-    总文章数 23
+    总文章数 24
 </nav>
 
 <nav>
-    总字数 <span class="post-count">19.2k</span>
+    总字数 <span class="post-count">19.9k</span>
 </nav>
 		<nav class="header-smart-menu">
     		
@@ -205,14 +205,14 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Codeforces Round #807 (Div. 2)翻译及题解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Codeforces Round #808 (Div. 2)翻译" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Codeforces Round #807 (Div. 2)翻译及题解
+      Codeforces Round #808 (Div. 2)翻译
     </h1>
   
 
@@ -228,13 +228,13 @@ daovoice('update');
 
 <!--显示阅读次数完毕-->
         
-        <a href="/posts/39924.html" class="archive-article-date">
-  	<time datetime="2022-07-16T08:08:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-16</time>
+        <a href="/posts/32037.html" class="archive-article-date">
+  	<time datetime="2022-07-17T08:10:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-17</time>
 </a>
         
 
         <div align="center" class="post-count">
-    字数：1.6k字 | 预计阅读时长：7分钟
+    字数：685字 | 预计阅读时长：3分钟
 </div>        
 
         <!-- 需要添加的位置 -->
@@ -246,78 +246,49 @@ daovoice('update');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天给大家带来7.15的Codeforces Round #807 (Div. 2)翻译及题解<br>感谢大家支持🤞  </p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天给大家带来7.16的Codeforces Round #808 (Div. 2)翻译<br>感谢大家支持🤞<br>益题交流群：1019201086 (QQ)</p>
 <hr>
 <p>作者：xyzlh</p>
 <hr>
 <a id="more"></a>
-<h3 id="A-Mark-the-Photographer"><a href="#A-Mark-the-Photographer" class="headerlink" title="A. Mark the Photographer"></a>A. Mark the Photographer</h3><p><a href="https://codeforces.com/contest/1705/problem/A" target="_blank" rel="noopener">原题面</a></p>
-<h4 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h4><p>Mark被要求给$2n$个人合影，第$i$个人的身高为$h_i$。 </p>
-<p>为了拍好合影，他将这些人分成了前排和后排这两行，每行有$n$个人。但为了保证每个人都能被看见，后排的第$j(1\leq j \leq n)$个人必须至少比前排的第$j$个人高$x$。  </p>
-<p>现在请你帮助Mark判断是否可能。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含一个整数$t(1 \leq t \leq 100)$,表示测试用例的数量。每次测试用例包括两行。  </p>
-<p>每个测试用例的第一行包含两个正整数$n$和$x (1≤n≤100, 1≤x≤10^3)$，分别表示每行的人数和 Mark 想要的最小差异。  </p>
-<p>每个测试用例的第二行包含$2n$个正整数$h_1,h_2,…,h_{2n}  (1≤h_i≤10^3)$，分别表示合影队伍里每个人的身高。</p>
-<p>请注意，总和$n$在所有测试用例中是没有界限的。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每个测试用例，如果 Mark 可以安排满足他条件的人，则打印一行包含“ YES ”，否则打印“ NO ”。</p>
-<p>您可以以任何形式打印每个字母（例如，YES、Yes、yes、yEs都将被识别为肯定答案）。</p>
-<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3 6</span><br><span class="line">1 3 9 10 12 16</span><br><span class="line">3 1</span><br><span class="line">2 5 2 2 2 5</span><br><span class="line">1 2</span><br><span class="line">8 6</span><br></pre></td></tr></table></figure>
+<h3 id="A-Difference-Operations"><a href="#A-Difference-Operations" class="headerlink" title="A. Difference Operations"></a>A. Difference Operations</h3><p><a href="https://codeforces.com/contest/1708/problem/A" target="_blank" rel="noopener">原题面</a></p>
+<h4 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h4><p>你将得到一个由$n$个正整数组成的数组$a$。  </p>
+<p>你可以执行此操作任意次数（可能为零）：  </p>
+<p>选择一个索引 $i(2≤i≤n)$，并将$a_i$改为$a_i−a_{i−1}$  </p>
+<p>是否可能对所有$2≤i≤n$使得$a_i=0$？</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>The input consists of multiple（多重的） test cases. The first line contains a single integer（整数） $t (1≤t≤100)$  — the number of test cases. The description of the test cases follows.</p>
+<p>The first line contains one integer $n (2≤n≤100)$ — the length of array $a$.</p>
+<p>The second line contains $n$ integers $a_1,a_2,…,a_n (1≤a_i≤10^9)$.</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>For each test case, print “YES” (without quotes（引号）), if it is possible to change $a_i$ to 0 for all $2≤i≤n$, and “NO” (without quotes) otherwise.</p>
+<p>You can print letters in any case (upper or lower).</p>
+<h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">2</span><br><span class="line">5 10</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">4</span><br><span class="line">1 1 1 1</span><br><span class="line">9</span><br><span class="line">9 9 8 2 4 4 3 5 3</span><br></pre></td></tr></table></figure>
 
-<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
 
-<h4 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h4><p>在第一个测试用例中，一个可能的顺序是让第三、第五和第六人在后排，第二、第一和第四人在前排。如下表：</p>
-<p>后排    9    12    16<br>前排    3    1    10<br>它满足条件，因为</p>
-<ul>
-<li>$h_3−h_2=9−3≥6$</li>
-<li>$h_5−h_1=12−1≥6$</li>
-<li>$h_6−h_4=16−10≥6$  </li>
-</ul>
-<p>在第二个测试用例中，可以证明无法以满足条件的方式对人员进行排序。</p>
-<p>在第三个测试用例中，满足条件的唯一安排是让第一个人在后排，第二个人在前排。</p>
-<h3 id="B-Mark-the-Dust-Sweeper"><a href="#B-Mark-the-Dust-Sweeper" class="headerlink" title="B. Mark the Dust Sweeper"></a>B. Mark the Dust Sweeper</h3><p><a href="https://codeforces.com/contest/1705/problem/B" target="_blank" rel="noopener">原题面</a>  </p>
-<h4 id="题面翻译-1"><a href="#题面翻译-1" class="headerlink" title="题面翻译"></a>题面翻译</h4><p>Mark正在打扫一排$n$个房间。第$i$个房间有一个非负的灰尘量$a_i$。他有一台神奇的清洁机，可以做到以下三步操作。  </p>
-<ul>
-<li>选择两个指数$i&lt;j$，使灰尘量$a_i，a_{i+1}，…，a_{j−1}$都大于0</li>
-<li>将$a_i$设置为$a_i-1$</li>
-<li>将$a_j$设置为$a_j+1$  </li>
-</ul>
-<p>Mark的目标是使$a_1=a_2=…=a_{n−1}=0$，这样他才能更好地打扫第$n$个房间。请你确定实现其目标所需的最少操作次数。</p>
-<h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>The first line contains a single integer（整数） $t (1≤t≤10^4)$ — the number of test cases.</p>
-<p>The first line of each test case contains a single integer $n (2≤n≤2⋅10^5)$ — the number of rooms.</p>
-<p>The second line of each test case contains $n$ integers $a_1, a_2, …, a_n (0≤a_i≤10^9)$ — the dust level of each room.</p>
-<p>It is guaranteed(保证) that the sum of $n$ across all test cases does not exceed $2⋅10^5$.</p>
-<h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>For each test case, print a line containing a single integer — the minimum number of operations. It can be proven that there is <strong>a sequence of</strong>（一系列） operations that meets the goal.</p>
-<h4 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3</span><br><span class="line">2 0 0</span><br><span class="line">5</span><br><span class="line">0 2 0 2 0</span><br><span class="line">6</span><br><span class="line">2 0 3 0 4 6</span><br><span class="line">4</span><br><span class="line">0 0 0 10</span><br></pre></td></tr></table></figure>
+<h4 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h4><p>In the first test case, the initial（初始的） array is $[5,10]$. You can perform 2 operations to reach the goal:</p>
+<p>Choose $i=2$, and the array becomes $[5,5]$.<br>Choose $i=2$, and the array becomes $[5,0]$.<br>In the second test case, the initial array is $[1,2,3]$. You can perform 4 operations to reach the goal:</p>
+<p>Choose $i=3$, and the array becomes $[1,2,1]$.<br>Choose $i=2$, and the array becomes $[1,1,1]$.<br>Choose $i=3$, and the array becomes $[1,1,0]$.<br>Choose $i=2$, and the array becomes $[1,0,0]$.  </p>
+<p>In the third test case, you can choose indices（索引） in the order 4, 3, 2.</p>
+<h3 id="B-Difference-of-GCDs"><a href="#B-Difference-of-GCDs" class="headerlink" title="B. Difference of GCDs"></a>B. Difference of GCDs</h3><p><a href="https://codeforces.com/contest/1708/problem/B" target="_blank" rel="noopener">原题面</a> </p>
+<h4 id="题面翻译-1"><a href="#题面翻译-1" class="headerlink" title="题面翻译"></a>题面翻译</h4><p>你将得到三个整数$n$,$l$和$r$。你需要构造一个数组包含$a_1,a_2,…,a_n (l≤a_i≤r)$，使得$gcd(i,a_i)$各不相同或输出没有解决方案。  </p>
+<p>这里$gcd ( x , y)$表示两个整数$x$和$y$的最大公约数 (GCD)。</p>
+<h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>The input consists of multiple（多重的） test cases. The first line contains a single integer $t (1≤t≤10^4)$ — the number of test cases. The description of the test cases follows.</p>
+<p>The first line contains three integers $n, l, r (1≤n≤10^5, 1≤l≤r≤10^9)$.</p>
+<p>It is guaranteed（保证） that the sum of $n$ over all test cases does not exceed（超过） $10^5$.</p>
+<h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>For each test case, if there is no solution, print “NO” (without quotes（引号）). You can print letters in any case (upper or lower).</p>
+<p>Otherwise, print “YES” (without quotes). In the next line, print $n$ integers $a_1,a_2,…,a_n$ — the array you construct.</p>
+<p>If there are multiple solutions, you may output any.</p>
+<h4 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">5 1 5</span><br><span class="line">9 1000 2000</span><br><span class="line">10 30 35</span><br><span class="line">1 1000000000 1000000000</span><br></pre></td></tr></table></figure>
 
-<h4 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">5</span><br><span class="line">11</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h4 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">1 2 3 4 5</span><br><span class="line">YES</span><br><span class="line">1145 1926 1440 1220 1230 1350 1001 1000 1233</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">1000000000</span><br></pre></td></tr></table></figure>
 
-<h4 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h4><p>In the first case, one possible sequence of operations is as follows.</p>
-<p>Choose $i=1$ and $j=2$, yielding the array $[1,1,0]$.<br>Choose $i=1$ and $j=3$, yielding the array $[0,1,1]$.<br>Choose $i=2$ and $j=3$, yielding the array $[0,0,2]$.<br>At this point, $a_1=a_2=0$, completing the process.<br>In the second case, one possible sequence of operations is as follows.</p>
-<p>Choose $i=4$ and $j=5$, yielding the array $[0,2,0,1,1]$.<br>Choose $i=2$ and $j=3$, yielding the array $[0,1,1,1,1]$.<br>Choose $i=2$ and $j=5$, yielding the array $[0,0,1,1,2]$.<br>Choose $i=3$ and $j=5$, yielding the array $[0,0,0,1,3]$.<br>Choose $i=4$ and $j=5$, yielding the array $[0,0,0,0,4]$.<br>In the last case, the array already satisfies the condition.</p>
-<h3 id="C-Mark-and-His-Unfinished-Essay"><a href="#C-Mark-and-His-Unfinished-Essay" class="headerlink" title="C. Mark and His Unfinished Essay"></a>C. Mark and His Unfinished Essay</h3><p><a href="https://codeforces.com/contest/1705/problem/C" target="_blank" rel="noopener">原题面</a></p>
-<h4 id="题面翻译-2"><a href="#题面翻译-2" class="headerlink" title="题面翻译"></a>题面翻译</h4><p>一天晚上，Mark意识到明天有一篇论文要交。他还没写任何东西，所以Mark决定从提示中随机复制粘贴子字符串来完成这篇论文。<br>更正式地说，提示是一个初始长度为$n$的字符串$s$。Mark将对这个字符串进行$c$次复制粘贴操作。每次操作将给出两个整数$l$和$r$，这意味着Mark将添加字母$s_l,s_{l + 1}…s_r$到字符串$s$的末尾。注意每次操作后$s$的长度会增加。<br>当然，Mark要能看到他写的内容。每次复制以后，Mark将给出$q$次询问：给定一个整数k，试确定最终字符串s的第k个字母。  </p>
-<h4 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h4><p>The first line contains a single integer（整数） $t(1≤t≤1000)$ — the number of test cases.</p>
-<p>The first line of each test case contains three integers $n, c, $and $ q (1≤n≤2⋅10^5, 1≤c≤40, 1≤q≤10^4)$ — the length of the initial（初始的） string s, the number of copy-pasting operations, and the number of queries（询问）, respectively（分别地）.</p>
-<p>The second line of each test case contains a single string $s$ of length $n$. It is guaranteed（保证） that $s$ only contains lowercase（小写） English letters.</p>
-<p>The following $c$ lines describe the copy-pasting operation. Each line contains two integers $l$ and $r (1≤l≤r≤10^{18})$. It is also guaranteed that $r$ does not exceed the current length of $s$.</p>
-<p>The last $q$ lines of each test case describe the queries. Each line contains a single integer $k (1≤k≤10^{18})$. It is also guaranteed that $k$ does not exceed（超过） the final length of $s$.</p>
-<p>It is guaranteed that the sum of $n$ and $q$ across all test cases does not exceed $2⋅10^5$ and $10^4$, respectively.  </p>
-<h4 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h4><p>For each query, print the $k$-th letter of the final string $s$.</p>
-<h4 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">4 3 3</span><br><span class="line">mark</span><br><span class="line">1 4</span><br><span class="line">5 7</span><br><span class="line">3 8</span><br><span class="line">1</span><br><span class="line">10</span><br><span class="line">12</span><br><span class="line">7 3 3</span><br><span class="line">creamii</span><br><span class="line">2 3</span><br><span class="line">3 4</span><br><span class="line">2 9</span><br><span class="line">9</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
-
-<h4 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出"></a>样例输出</h4><pre><code>m
-a
-r
-e
-a
-r</code></pre><h4 id="提示-2"><a href="#提示-2" class="headerlink" title="提示"></a>提示</h4><p>In the first test case, the copy-paste process is as follows.</p>
-<p>The first step is pasting string <strong>mark</strong> at the end, yielding（产生） the string <strong>markmark</strong>.<br>The second step is pasting string <strong>mar</strong> at the end, yielding the string <strong>markmarkmar</strong>.<br>The third step is pasting string <strong>rkmark</strong> at the end, yielding the string <strong>markmarkmarrkmark</strong>.  </p>
-<p>In the second test case, the copy-paste process is as follows.</p>
-<p>The first step is pasting string <strong>re</strong> at the end, yielding the string <strong>creamiire</strong>.<br>The second step is pasting string <strong>ea</strong> at the end, yielding the string <strong>creamiireea</strong>.<br>The third step is pasting string <strong>reamiire</strong> at the end, yielding the string <strong>creamiireeareamiire</strong>.</p>
-<h3 id="D-Mark-and-Lightbulbs"><a href="#D-Mark-and-Lightbulbs" class="headerlink" title="D. Mark and Lightbulbs"></a>D. Mark and Lightbulbs</h3><p><a href="https://codeforces.com/contest/1705/problem/D" target="_blank" rel="noopener">原题面</a></p>
-<h3 id="E-Mark-and-Professor-Koro"><a href="#E-Mark-and-Professor-Koro" class="headerlink" title="E. Mark and Professor Koro"></a>E. Mark and Professor Koro</h3><p><a href="https://codeforces.com/contest/1705/problem/E" target="_blank" rel="noopener">原题面</a></p>
-<h3 id="F-Mark-and-the-Online-Exam"><a href="#F-Mark-and-the-Online-Exam" class="headerlink" title="F. Mark and the Online Exam"></a>F. Mark and the Online Exam</h3><p><a href="https://codeforces.com/contest/1705/problem/F" target="_blank" rel="noopener">原题面</a></p>
-<p>这期到这里就结束了，我们下期再见！😊</p>
+<h4 id="提示-1"><a href="#提示-1" class="headerlink" title="提示"></a>提示</h4><p>In the first test case, $gcd(1,a_1),gcd(2,a_2),…,gcd(5,a_5)$ are equal to 1, 2, 3, 4, 5, respectively（分别地）.</p>
+<h3 id="C-Doremy’s-IQ"><a href="#C-Doremy’s-IQ" class="headerlink" title="C. Doremy’s IQ"></a>C. Doremy’s IQ</h3><p><a href="https://codeforces.com/contest/1708/problem/C" target="_blank" rel="noopener">原题面</a></p>
+<h3 id="D-Difference-Array"><a href="#D-Difference-Array" class="headerlink" title="D. Difference Array"></a>D. Difference Array</h3><p><a href="https://codeforces.com/contest/1708/problem/D" target="_blank" rel="noopener">原题面</a></p>
+<h3 id="E-DFS-Trees"><a href="#E-DFS-Trees" class="headerlink" title="E. DFS Trees"></a>E. DFS Trees</h3><p><a href="https://codeforces.com/contest/1708/problem/E" target="_blank" rel="noopener">原题面</a></p>
+<h3 id="F-Partial-Virtual-Trees"><a href="#F-Partial-Virtual-Trees" class="headerlink" title="F. Partial Virtual Trees"></a>F. Partial Virtual Trees</h3><p><a href="https://codeforces.com/contest/1708/problem/F" target="_blank" rel="noopener">原题面</a></p>
+<p>这期到这里就结束了，我们下期再见！😊  </p>
+<p>益题交流群：1019201086 (QQ)</p>
 
       
        
@@ -334,16 +305,16 @@ r</code></pre><h4 id="提示-2"><a href="#提示-2" class="headerlink" title="�
     
     <br>
     <strong class="create-time">发布时间：</strong>
-    2022-07-16
+    2022-07-17
     <br>
     <strong class="update-time">最后更新：</strong>
-    2022-07-16
+    2022-07-17
     <br>
     <strong class="article-titles">本文标题：</strong>
-    <a href="https://yitee.top/posts/39924.html" title="Codeforces Round #807 (Div. 2)翻译及题解" target="_blank">Codeforces Round #807 (Div. 2)翻译及题解</a>
+    <a href="https://yitee.top/posts/32037.html" title="Codeforces Round #808 (Div. 2)翻译" target="_blank">Codeforces Round #808 (Div. 2)翻译</a>
     <br>
     <strong class="article-url">本文链接：</strong>
-    <a href="https://yitee.top/posts/39924.html" title="Codeforces Round #807 (Div. 2)翻译及题解" target="_blank">https://yitee.top/posts/39924.html</a>
+    <a href="https://yitee.top/posts/32037.html" title="Codeforces Round #808 (Div. 2)翻译" target="_blank">https://yitee.top/posts/32037.html</a>
     <br>
     <strong class="copyright">版权声明：</strong>
     本作品采用
@@ -453,7 +424,7 @@ r</code></pre><h4 id="提示-2"><a href="#提示-2" class="headerlink" title="�
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.top/posts/39924.html" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.top/posts/32037.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -468,8 +439,8 @@ r</code></pre><h4 id="提示-2"><a href="#提示-2" class="headerlink" title="�
 <nav id="article-nav">
   
   
-    <a href="/posts/25175.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">20.排队接水</div>
+    <a href="/posts/18831.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeforces Round #807 (Div. 2)翻译及题解</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -496,7 +467,7 @@ r</code></pre><h4 id="提示-2"><a href="#提示-2" class="headerlink" title="�
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Mark-the-Photographer"><span class="toc-number">1.1.</span> <span class="toc-text">A. Mark the Photographer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题面翻译"><span class="toc-number">1.1.1.</span> <span class="toc-text">题面翻译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式"><span class="toc-number">1.1.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式"><span class="toc-number">1.1.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输入"><span class="toc-number">1.1.4.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输出"><span class="toc-number">1.1.5.</span> <span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提示"><span class="toc-number">1.1.6.</span> <span class="toc-text">提示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Mark-the-Dust-Sweeper"><span class="toc-number">1.2.</span> <span class="toc-text">B. Mark the Dust Sweeper</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题面翻译-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题面翻译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输入-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输出-1"><span class="toc-number">1.2.5.</span> <span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提示-1"><span class="toc-number">1.2.6.</span> <span class="toc-text">提示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Mark-and-His-Unfinished-Essay"><span class="toc-number">1.3.</span> <span class="toc-text">C. Mark and His Unfinished Essay</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题面翻译-2"><span class="toc-number">1.3.1.</span> <span class="toc-text">题面翻译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式-2"><span class="toc-number">1.3.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式-2"><span class="toc-number">1.3.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输入-2"><span class="toc-number">1.3.4.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输出-2"><span class="toc-number">1.3.5.</span> <span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提示-2"><span class="toc-number">1.3.6.</span> <span class="toc-text">提示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-Mark-and-Lightbulbs"><span class="toc-number">1.4.</span> <span class="toc-text">D. Mark and Lightbulbs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-Mark-and-Professor-Koro"><span class="toc-number">1.5.</span> <span class="toc-text">E. Mark and Professor Koro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-Mark-and-the-Online-Exam"><span class="toc-number">1.6.</span> <span class="toc-text">F. Mark and the Online Exam</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Difference-Operations"><span class="toc-number">1.1.</span> <span class="toc-text">A. Difference Operations</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题面翻译"><span class="toc-number">1.1.1.</span> <span class="toc-text">题面翻译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式"><span class="toc-number">1.1.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式"><span class="toc-number">1.1.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输入"><span class="toc-number">1.1.4.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输出"><span class="toc-number">1.1.5.</span> <span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提示"><span class="toc-number">1.1.6.</span> <span class="toc-text">提示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Difference-of-GCDs"><span class="toc-number">1.2.</span> <span class="toc-text">B. Difference of GCDs</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#题面翻译-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">题面翻译</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输入格式-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">输入格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#输出格式-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">输出格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输入-1"><span class="toc-number">1.2.4.</span> <span class="toc-text">样例输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例输出-1"><span class="toc-number">1.2.5.</span> <span class="toc-text">样例输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#提示-1"><span class="toc-number">1.2.6.</span> <span class="toc-text">提示</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Doremy’s-IQ"><span class="toc-number">1.3.</span> <span class="toc-text">C. Doremy’s IQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-Difference-Array"><span class="toc-number">1.4.</span> <span class="toc-text">D. Difference Array</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-DFS-Trees"><span class="toc-number">1.5.</span> <span class="toc-text">E. DFS Trees</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-Partial-Virtual-Trees"><span class="toc-number">1.6.</span> <span class="toc-text">F. Partial Virtual Trees</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
