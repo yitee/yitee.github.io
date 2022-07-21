@@ -7,14 +7,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://yitee.top">
-  <title>Tag: STL | 益题 Yitee</title>
+  <title>21. Codeforces Round #806 (Div. 4) G翻译及题解  | 益题 Yitee</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="益题 Yitee">
-<meta property="og:url" content="https://yitee.top/tags/STL/index.html">
+  <meta name="description" content="前言今天给大家带来7.12的Codeforces Round #806 (Div. 4) G. Good Key, Bad Key的翻译及题解感谢大家支持🤞益题交流群：1019201086 (QQ)  作者： H_D_NULL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="21. Codeforces Round #806 (Div. 4) G翻译及题解 ">
+<meta property="og:url" content="https://yitee.top/posts/24569.html">
 <meta property="og:site_name" content="益题 Yitee">
+<meta property="og:description" content="前言今天给大家带来7.12的Codeforces Round #806 (Div. 4) G. Good Key, Bad Key的翻译及题解感谢大家支持🤞益题交流群：1019201086 (QQ)  作者： H_D_NULL">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-21T09:48:07.000Z">
+<meta property="article:modified_time" content="2022-07-21T09:49:53.796Z">
 <meta property="article:author" content="益题 Yitee">
+<meta property="article:tag" content="贪心">
+<meta property="article:tag" content="Codeforces">
+<meta property="article:tag" content="翻译">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="益题 Yitee" type="application/atom+xml">
@@ -199,64 +206,354 @@ daovoice('update');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-21. Codeforces Round #806 (Div. 4) G翻译及题解 " class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/posts/57122.html" class="archive-article-date">
-  	<time datetime="2020-10-14T12:44:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-14</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/57122.html">6.海港</a>
+    <h1 class="article-title" itemprop="name">
+      21. Codeforces Round #806 (Div. 4) G翻译及题解 
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+	<!--显示阅读次数-->
+
+  <br/>
+  <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+  <span class="icon-sort"></span>
+  <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+  	阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+  </span>
+  </a>
+
+<!--显示阅读次数完毕-->
+        
+        <a href="/posts/24569.html" class="archive-article-date">
+  	<time datetime="2022-07-21T09:48:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-21</time>
+</a>
+        
+
+        <div align="center" class="post-count">
+    字数：1.3k字 | 预计阅读时长：5分钟
+</div>        
+
+        <!-- 需要添加的位置 -->
+        <!-- 开始添加字数统计-->
+        
+        <!-- 添加完成 -->
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天给大家带来7.12的Codeforces Round #806 (Div. 4) G. Good Key, Bad Key的翻译及题解<br>感谢大家支持🤞<br>益题交流群：1019201086 (QQ)</p>
+<hr>
+<p>作者： H_D_NULL</p>
+<hr>
+<a id="more"></a>
+<h4 id="原题面"><a href="#原题面" class="headerlink" title="原题面"></a><a href="https://codeforces.com/contest/1703/problem/G" target="_blank" rel="noopener">原题面</a></h4><hr>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>你有 $n$ 个箱子。第 $i$ 个箱子中有 $a_i$ 个硬币。你需要按照从箱子 $1$ 号到箱子 $n$ 号的顺序打开所有 $n$ 个箱子。</p>
+<p>你可以用以下两种钥匙之一打开一个箱子：</p>
+<ul>
+<li>好钥匙：使用一次消耗 $k$ 个硬币。</li>
+<li>坏钥匙：使用时不消耗硬币，但会使所有未打开的箱子中的硬币数减半（包括正要打开的这个箱子）。硬币减半时向下取整。比如，用坏钥匙打开箱子 $i$ 号时，$a_i=a_i/2$，$a_i+1=a_i+1/2$，$……$，$a_n=a_n/2$。</li>
+</ul>
+<p>所有钥匙用过一次就会断掉（别想着买一把好钥匙开完所有箱子了），好钥匙需要重复付费，坏钥匙效果会重复计算。</p>
+<p>也就是说，你总共需要使用 $n$ 把钥匙，每个箱子用一把。开始时，你没有硬币和钥匙，如果想用好钥匙，你就得去买。值得注意的是，在这个过程中你可以赊账买钥匙；例如，如果你只有 $1$ 个硬币，你也可以购买价值 $k=3$ 个硬币的好钥匙，你的余额会变成 $-2$ 个硬币。</p>
+<p>你需要求出开完所有箱子之后你能获得的最大硬币数量（显然大于等于 $0$ ）。</p>
+<hr>
+<h4 id="INPUT"><a href="#INPUT" class="headerlink" title="INPUT"></a>INPUT</h4><p>第一行包含一个整数 $t$（$1 \leq t \leq 10<br>^4$），表示测试数据的组数。</p>
+<ul>
+<li>每组测试数据的第一行包含两个整数 $n$ 和 $k$（$1 \leq n \leq 10^5$，$0 \leq k \leq 10^9$），分别表示箱子的个数和每把好钥匙的花费。</li>
+<li>每组测试数据的第二行包含 $n$ 个整数 $a_i$（$0 \leq a_i \leq 10^9$），表示每个箱子中硬币的数量。</li>
+</ul>
+<p>所有测试数据中 $n$ 的总和不超过 $10^5$ 。</p>
+<hr>
+<h4 id="OUTPUT"><a href="#OUTPUT" class="headerlink" title="OUTPUT"></a>OUTPUT</h4><p>对于每个测试数据，输出对应的可获得最大硬币数量。</p>
+<p>提示（题面中给出）：开 $long$ $long$  </p>
+<h2 id="解题思路："><a href="#解题思路：" class="headerlink" title="解题思路："></a>解题思路：</h2><h3 id="暴力思想："><a href="#暴力思想：" class="headerlink" title="暴力思想："></a>暴力思想：</h3><p>枚举每个箱子用钥匙的种类。时间复杂度：$O(2^n)$</p>
+<h3 id="无优化的DP思想："><a href="#无优化的DP思想：" class="headerlink" title="无优化的DP思想："></a>无优化的DP思想：</h3><p>维护 $f[i][j]$ 表示开完 $i$ 个箱子用了j把坏钥匙能获得的最大硬币数。状态转移方程：$f[i][j]=max(f[i-1][j-1]+ai\div2^j,f[i-1][j]+ai\div2^j-k)$。时间复杂度：$O(n^2)$</p>
+<h3 id="初步形成贪心思想："><a href="#初步形成贪心思想：" class="headerlink" title="初步形成贪心思想："></a>初步形成贪心思想：</h3><p>因为坏钥匙可以对所有未打开箱子造成减半影响，所以我们模糊地感受到应该尽量晚地使用坏钥匙：</p>
+<ul>
+<li>特别地，只有两个箱子且限定了需使用一次好钥匙，一次坏钥匙时，先使用好钥匙可获得 $a_1+a_2\div2-k$ ，先使用坏钥匙可获得 $(a_1+a_2\div2)-k$ 显然较前一种情况少。</li>
+<li>一般地，如果好钥匙的数量确定，则好钥匙对数量的影响确定（与顺序无关），而坏钥匙越早使用对总数量的影响越大。</li>
+</ul>
+<p>故得出贪心策略：<strong>先使用一定数量好钥匙，再使用坏钥匙开剩下的箱子</strong>。对于本题，则先枚举选用好钥匙的数量 $num$（$1\leq num\leq n$），再按上述策略计算每次的数量，从中取最大值。</p>
+<p>接下来证明时间复杂度：枚举使用好钥匙数量 $num$：$O(n)$；计算好钥匙部分的数量，利用预处理的前缀和数组 $s$ ，结果 $s[num]-num\ast k$：$O(1)$；计算坏钥匙部分的数量，模拟得第一把坏钥匙开出的箱子得 $\frac{a_i}{2}$ ，第二把为 $\frac{a_i+1}{4}$ ，以此类推，当所有坏钥匙都减半至 $0$ 后可提前跳出，最坏复杂度 $O(\log_{2}a_{max})$。<br>总上，按以上策略贪心总时间复杂度 $O(n\log_{2}a_{max})$ ，对于极限数据能一秒内跑过（<del>剩下的两秒就借给常数吧</del>），通过此题绰绰有余。</p>
+<hr>
+<pre><code class="cpp">
+<span class="comment">//CF赛时实际运行用时62ms </span>
+<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span>
+<span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;
+<span class="comment">//不建议使用 </span>
+<span class="meta">#<span class="meta-keyword">define</span> re register</span>
+<span class="meta">#<span class="meta-keyword">define</span> int long long</span>
+
+<span class="keyword">int</span> a[<span class="number">100005</span>];
+<span class="keyword">int</span> s[<span class="number">100005</span>]; <span class="comment">//前缀和，O(1)得好钥匙花费 </span>
+
+<span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>{
+    ios::sync_with_stdio(<span class="literal">false</span>);
+    re <span class="keyword">int</span> T,n,k;
+    <span class="built_in">cin</span>&gt;&gt;T;
+    <span class="keyword">while</span>(T--){
+        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;k;
+        re <span class="keyword">int</span> maxx=<span class="number">0</span>;
+        re <span class="keyword">int</span> slen=<span class="number">0</span>; <span class="comment">//记录max{a}</span>
+        <span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++){
+            <span class="built_in">cin</span>&gt;&gt;a[i];
+            s[i]=a[i]+s[i<span class="number">-1</span>];
+            slen=max(slen,a[i]);
+        }
+        <span class="keyword">for</span>(re <span class="keyword">int</span> i=<span class="number">0</span>,sum;i&lt;=n;i++){
+            re <span class="keyword">int</span> ans=s[i]-(i*k); <span class="comment">//好钥匙总贡献 </span>
+            sum=<span class="number">1</span>; <span class="comment">//记录减半的倍数 </span>
+            <span class="keyword">for</span>(re <span class="keyword">int</span> j=i+<span class="number">1</span>,nw;j&lt;=n&amp;&amp;sum&lt;=slen;j++){
+                <span class="comment">//减半倍数超过max{a}时后面的箱子都被减为0，不再统计 </span>
+                sum&lt;&lt;=<span class="number">1</span>;
+                nw=a[j];
+                nw/=sum;
+                ans+=nw;
+            }
+            maxx=max(maxx,ans); <span class="comment">//更新答案 </span>
+        }
+        <span class="built_in">cout</span>&lt;&lt;maxx&lt;&lt;<span class="string">"\n"</span>;
+    }
+    <span class="keyword">return</span> <span class="number">0</span>;
+}
+</code></pre>
+<p>这期到这里就结束了，我们下期再见！😊  </p>
+<p>益题交流群：1019201086 (QQ)</p>
+
+      
+       
+            <!-- 《添加版权声明 -->
+<!--添加版权声明https://github.com/JoeyBling/hexo-theme-yilia-plus/commit/c1215e132f6d5621c5fea83d3c4f7ccbcca074a3-->
+
+
+<!-- #版权基础设定：0-关闭声明； 1-文章对应的md文件里有declare: true属性，才有版权声明； 2-所有文章均有版权声明 -->
+
+  <div class="declare">
+    <strong class="author">本文作者：</strong>
+    
+      益题 Yitee
+    
+    <br>
+    <strong class="create-time">发布时间：</strong>
+    2022-07-21
+    <br>
+    <strong class="update-time">最后更新：</strong>
+    2022-07-21
+    <br>
+    <strong class="article-titles">本文标题：</strong>
+    <a href="https://yitee.top/posts/24569.html" title="21. Codeforces Round #806 (Div. 4) G翻译及题解 " target="_blank">21. Codeforces Round #806 (Div. 4) G翻译及题解 </a>
+    <br>
+    <strong class="article-url">本文链接：</strong>
+    <a href="https://yitee.top/posts/24569.html" title="21. Codeforces Round #806 (Div. 4) G翻译及题解 " target="_blank">https://yitee.top/posts/24569.html</a>
+    <br>
+    <strong class="copyright">版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议">CC BY-NC-SA 4.0</a>
+    许可协议进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"><img alt="知识共享许可协议" style="border-width:0" src="/img/warn.png"/></a>
+    
+  </div>
+
+<!-- 添加版权声明》 -->
+        
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/pay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">普及</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">贪心</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">STL</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Codeforces</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yitee.top/posts/24569.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/posts/32037.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeforces Round #808 (Div. 2)翻译</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#原题面"><span class="toc-number">1.0.1.</span> <span class="toc-text">原题面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#题目描述"><span class="toc-number">1.0.2.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#INPUT"><span class="toc-number">1.0.3.</span> <span class="toc-text">INPUT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OUTPUT"><span class="toc-number">1.0.4.</span> <span class="toc-text">OUTPUT</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解题思路："><span class="toc-number">2.</span> <span class="toc-text">解题思路：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#暴力思想："><span class="toc-number">2.1.</span> <span class="toc-text">暴力思想：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无优化的DP思想："><span class="toc-number">2.2.</span> <span class="toc-text">无优化的DP思想：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#初步形成贪心思想："><span class="toc-number">2.3.</span> <span class="toc-text">初步形成贪心思想：</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+   
+<section id="comments" class="comments">
+  <style>
+    .comments{margin:30px;padding:10px;background:#fff}
+    @media screen and (max-width:800px){.comments{margin:auto;padding:10px;background:#fff}}
+  </style>
+  <div id="vcomment" class="comment"></div> 
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+   var notify = 'true' == true ? true : false;
+   var verify = 'false' == true ? true : false;
+    window.onload = function() {
+        new Valine({
+            el: '.comment',
+            notify: notify,
+            verify: verify,
+            app_id: "jGcu64m7fjMl5KdSrGFjtJrc-MdYXbMMI",
+            app_key: "rOwoqUYW7ASwOGYRN6kG65SG",
+            placeholder: "ヾﾉ≧∀≦)o欢迎评论!",
+            avatar:"mp"
+        });
+    }
+</script>
+  </section>
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -303,9 +600,9 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
